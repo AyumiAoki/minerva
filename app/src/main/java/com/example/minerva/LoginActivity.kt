@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.button_login -> {
-                Toast.makeText(applicationContext, "Teste login", Toast.LENGTH_SHORT).show()
+                login()
             }
 
             R.id.button_login_google -> {
@@ -42,6 +42,41 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
         }
+    }
+
+    fun login() {
+        if (validarDados()) {
+            Toast.makeText(applicationContext, "Teste login", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun validarDados(): Boolean {
+        var check = true
+
+        //Validação campo email
+        if(edit_email.text.toString().isEmpty()){
+            check = false
+            edit_email.error = "Campo obrigatório"
+        }else if(!validateEmail(edit_email.text.toString())){
+            check = false
+            edit_email.error = "Insira um formato de email válido"
+        }
+
+        //Validação campo senha
+        if(edit_senha.text.toString().isEmpty()){
+            check = false
+            edit_senha.error = "Campo obrigatório"
+        }else if(edit_senha.text.toString().length < 6){
+            check = false
+            edit_senha.error = "Senha possui 6 ou mais caracteres"
+        }
+
+        return check
+    }
+
+    fun validateEmail(email: String) : Boolean{
+        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+        return email.matches(emailPattern.toRegex())
     }
 
 }
