@@ -24,8 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padrao_margin"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_button_google"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_nome_app">
 
@@ -248,7 +250,9 @@
             app:layout_constraintEnd_toStartOf="@id/button_termo_uso"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </CheckBox>
 
         <TextView
             android:id="@+id/button_termo_uso"
