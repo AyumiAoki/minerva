@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fonte_padrao_media">16sp</dimen>
+    <dimen name="fonte_padrao_pequena">14sp</dimen>
+    <dimen name="padrao_margin">16dp</dimen>
+</resources>
