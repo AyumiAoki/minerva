@@ -1,4 +1,4 @@
-package com.example.minerva
+package com.example.minerva.service
 
 import androidx.annotation.DrawableRes
 

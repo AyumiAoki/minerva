@@ -1,4 +1,4 @@
-package com.example.minerva
+package com.example.minerva.ui
 
 import android.content.Intent
 import android.os.Build
@@ -6,13 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.size
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.minerva.service.Dicas
+import com.example.minerva.R
 import kotlinx.android.synthetic.main.activity_tela_apresentacao.*
 import kotlinx.android.synthetic.main.dica.view.*
 import java.lang.Math.abs

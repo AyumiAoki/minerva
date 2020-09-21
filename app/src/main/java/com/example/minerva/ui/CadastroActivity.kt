@@ -1,10 +1,11 @@
-package com.example.minerva
+package com.example.minerva.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.minerva.R
 import com.example.minerva.service.Util
 import com.example.minerva.service.constants.ErrorsFirebase
 import com.google.android.gms.auth.api.signin.GoogleSignIn

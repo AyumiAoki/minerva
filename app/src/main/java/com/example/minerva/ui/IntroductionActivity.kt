@@ -1,13 +1,12 @@
-package com.example.minerva
+package com.example.minerva.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.minerva.R
 import kotlinx.android.synthetic.main.activity_introduction.*
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.button_cadastrar
 
 class IntroductionActivity : AppCompatActivity(), View.OnClickListener {

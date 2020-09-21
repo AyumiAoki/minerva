@@ -1,9 +1,10 @@
-package com.example.minerva
+package com.example.minerva.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.minerva.R
 import com.example.minerva.service.Util
 import com.example.minerva.service.constants.ErrorsFirebase
 import com.google.firebase.auth.FirebaseAuth

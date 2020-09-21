@@ -1,10 +1,10 @@
-package com.example.minerva
+package com.example.minerva.ui
 
-import android.app.Presentation
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.minerva.R
 
 class MainActivity : AppCompatActivity() {
 

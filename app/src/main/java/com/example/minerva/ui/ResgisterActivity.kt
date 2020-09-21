@@ -1,7 +1,8 @@
-package com.example.minerva
+package com.example.minerva.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.minerva.R
 
 class ResgisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
