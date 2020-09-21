@@ -25,7 +25,7 @@ class PrincipalActivity : AppCompatActivity(), View.OnClickListener {
         mAuth = FirebaseAuth.getInstance()
 
         button_deslogar.setOnClickListener(this)
-        mNomeUsuario = mAuth.currentUser!!.displayName ?: "null"
+        mNomeUsuario = ("Olá, " + mAuth.currentUser!!.displayName + "!") ?: "null"
         text_teste.text = mNomeUsuario
 
         estadoAutenticacao()
@@ -54,7 +54,7 @@ class PrincipalActivity : AppCompatActivity(), View.OnClickListener {
 
         finish()
 
-        startActivity(Intent(baseContext, LoginActivity::class.java))
+        startActivity(Intent(baseContext, IntroductionActivity::class.java))
     }
 
     //---------------------------------- SERVIÇOS ------------------------------------------//

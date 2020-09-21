@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
+import com.example.minerva.service.SecurityPreferences
 import com.example.minerva.service.Util
 import com.example.minerva.service.constants.ErrorsFirebase
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -35,7 +36,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         button_cadastrar.setOnClickListener(this)
         button_login.setOnClickListener(this)
         button_login_google.setOnClickListener(this)
-
 
         servicosGoogle()
     }

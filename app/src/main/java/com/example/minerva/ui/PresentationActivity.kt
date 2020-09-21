@@ -83,8 +83,9 @@ class PresentationActivity : AppCompatActivity() {
         })
 
         proximo.setOnClickListener{
-            if(tela_apresentacao.currentItem == tela_apresentacao.size) {
+            if(tela_apresentacao.currentItem - 1  == tela_apresentacao.size) {
                 intent = Intent(applicationContext, LoginActivity::class.java)
+                finish()
                 startActivity(intent)
             } else {
                 tela_apresentacao.setCurrentItem(tela_apresentacao.currentItem + 1, true)
@@ -93,6 +94,7 @@ class PresentationActivity : AppCompatActivity() {
 
         pular.setOnClickListener{
             intent = Intent(applicationContext, IntroductionActivity::class.java)
+            finish()
             startActivity(intent)
         }
     }

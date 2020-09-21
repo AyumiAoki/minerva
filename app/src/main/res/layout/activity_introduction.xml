@@ -50,7 +50,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorWhite" />
+                app:tint="@drawable/custom_text_buttom" />
 
             <TextView
                 android:id="@+id/text_logar"
@@ -60,7 +60,7 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="@string/logar_google_button"
-                android:textColor="@color/colorWhite"
+                android:textColor="@drawable/custom_text_buttom"
                 android:textSize="@dimen/fonte_padrao_media"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
