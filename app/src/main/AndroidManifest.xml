@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".IntroductionActivity"/>
+        <activity android:name=".PresentationActivity"/>
         <activity android:name=".RecuperarSenhaActivity" />
         <activity android:name=".CadastroActivity" />
         <activity android:name=".PrincipalActivity"></activity>
