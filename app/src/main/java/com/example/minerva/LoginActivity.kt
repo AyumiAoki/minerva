@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if (validarDados()) {
             mAuth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
                     finish()
                 } else {
                     validacaoFirebase(it.exception.toString())
@@ -180,7 +180,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
                     finish()
                 } else {
                     Toast.makeText(applicationContext, "Error ao logar com o Google", Toast.LENGTH_LONG)

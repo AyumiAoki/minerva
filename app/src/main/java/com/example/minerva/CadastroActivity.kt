@@ -191,7 +191,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
                     finish()
                 }else{
                     Toast.makeText(applicationContext, "Não foi possível salvar o nome", Toast.LENGTH_SHORT)
@@ -214,7 +214,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
                     finish()
                 } else {
                     Toast.makeText(applicationContext, "Error ao logar com o Google", Toast.LENGTH_LONG)
