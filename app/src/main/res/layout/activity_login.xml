@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/text_nome_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="42dp"
         android:fontFamily="@font/rammetto_one"
         android:text="@string/nomeApp"
         android:textColor="#000"
@@ -22,7 +23,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/button_login_google"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_margin="@dimen/padrao_margin"
         android:background="@drawable/custom_button_google"
         android:longClickable="false"
@@ -49,8 +50,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
             android:text="@string/logar_google_button"
             android:textColor="@drawable/custom_view_text_google"
             android:textSize="@dimen/fonte_padrao_media"
@@ -66,7 +65,9 @@
         android:id="@+id/relative_ou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padrao_margin"
+        android:layout_marginStart="@dimen/padrao_margin"
+        android:layout_marginEnd="@dimen/padrao_margin"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login_google">
@@ -84,10 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/roboto_light"
             android:text="@string/ou"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <View
             android:layout_width="wrap_content"
@@ -104,20 +105,22 @@
         android:id="@+id/text_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padrao_margin"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="@dimen/padrao_margin"
         android:fontFamily="@font/source_sans_pro"
         android:text="@string/email"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/fonte_padrao_media"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relative_ou" />
+        app:layout_constraintTop_toBottomOf="@+id/relative_ou"
+        android:layout_marginLeft="@dimen/padrao_margin" />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginStart="@dimen/padrao_margin"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/padrao_margin"
         android:background="@drawable/custom_edit_text"
         android:hint="nome@example.com"
@@ -141,24 +144,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
-    <EditText
-        android:id="@+id/edit_senha"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_senha"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padrao_margin"
-        android:layout_marginTop="4dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="@dimen/padrao_margin"
-        android:background="@drawable/custom_edit_text"
-        android:inputType="textPassword"
-        android:textSize="@dimen/fonte_padrao_pequena"
+        android:layout_marginStart="@dimen/padrao_margin"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/text_senha"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorPrimary">
+
+        <EditText
+            android:id="@+id/edit_senha"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edit_text"
+            android:inputType="textPassword"
+            android:textSize="@dimen/fonte_padrao_pequena" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/button_recuperar_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padrao_margin"
+        android:layout_marginTop="@dimen/pequena_margin"
         android:layout_marginEnd="@dimen/padrao_margin"
         android:layout_marginRight="@dimen/padrao_margin"
         android:fontFamily="@font/roboto"
@@ -167,13 +181,16 @@
         android:textSize="@dimen/fonte_padrao_pequena"
         app:layout_constraintBottom_toTopOf="@id/button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_senha" />
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padrao_margin"
+        android:layout_height="42dp"
+        android:elevation="2dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/padrao_margin"
+        android:layout_marginStart="@dimen/padrao_margin"
         android:background="@drawable/custom_button"
         android:fontFamily="@font/roboto"
         android:text="Entrar"
@@ -188,7 +205,7 @@
         android:id="@+id/text_nao_conta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/open_sans"
         android:text="Não tem conta? "
         android:textColor="@color/colorBlack"

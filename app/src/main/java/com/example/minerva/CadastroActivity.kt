@@ -61,7 +61,6 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //--------------------------------METODOS DOS CLIKCS----------------------------------//
-
     fun login(){
         startActivity(Intent(applicationContext, LoginActivity::class.java))
         finish()
@@ -125,7 +124,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
             edit_sobrenome.error = "Campo obrigaóorio"
         } else if (!Util.validarNome(sobrenome)) {
             check = false
-            edit_name.error = "Formato de nome invalído"
+            edit_sobrenome.error = "Formato de nome invalído"
         }
 
         if (email.isEmpty()) {
@@ -182,7 +181,6 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //---------------------------------- SERVIÇOS ------------------------------------------//
-
     private fun salvarNome(nome: String){
         val user = mAuth.currentUser
 

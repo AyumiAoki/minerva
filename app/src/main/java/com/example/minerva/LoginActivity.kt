@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         button_login.setOnClickListener(this)
         button_login_google.setOnClickListener(this)
 
+
         servicosGoogle()
     }
 
@@ -148,7 +149,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //Validação campo senha
         if (senha.isEmpty()) {
             check = false
-            edit_senha.error = "Campo obrigatório"
+            layout_senha.error = "Campo obrigatório"
         } else if (Util.validarSenha(senha)) {
             check = false
             edit_senha.error = "Senha possui 6 ou mais caracteres"
