@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroActivity">
+    tools:context=".CadastroActivity"
+    android:background="@color/colorWhite">
 
     <TextView
         android:id="@+id/text_nome_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="42dp"
         android:fontFamily="@font/rammetto_one"
         android:text="@string/nomeApp"
         android:textColor="#000"
@@ -22,10 +23,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/button_cadastro_google"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_margin="@dimen/padrao_margin"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_button_google"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_nome_app">
 
@@ -50,8 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
             android:text="Cadastrar com o Google"
             android:textColor="@drawable/custom_view_text_google"
             android:textSize="@dimen/fonte_padrao_media"
@@ -67,7 +68,9 @@
         android:id="@+id/relative_ou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padrao_margin"
+        android:layout_marginStart="@dimen/padrao_margin"
+        android:layout_marginEnd="@dimen/padrao_margin"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,10 +89,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/roboto_light"
             android:text="OU"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <View
             android:layout_width="wrap_content"
@@ -137,9 +140,9 @@
         android:id="@+id/linear_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/padrao_margin"
+        android:layout_marginLeft="@dimen/padrao_margin"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/padrao_margin"
         android:layout_marginRight="@dimen/padrao_margin"
         android:orientation="horizontal"
@@ -150,8 +153,8 @@
         <EditText
             android:id="@+id/edit_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="12dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1.5"
             android:background="@drawable/custom_edit_text"
@@ -160,7 +163,7 @@
         <EditText
             android:id="@+id/edit_sobrenome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:layout_weight="1"
             android:background="@drawable/custom_edit_text"
             android:inputType="text"
@@ -174,7 +177,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padrao_margin"
         android:layout_marginLeft="@dimen/padrao_margin"
-        android:layout_marginTop="@dimen/padrao_margin"
+        android:layout_marginTop="@dimen/pequena_margin"
         android:fontFamily="@font/source_sans_pro"
         android:text="Email"
         android:textColor="@color/colorBlack"
@@ -185,9 +188,9 @@
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginStart="@dimen/padrao_margin"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/padrao_margin"
         android:background="@drawable/custom_edit_text"
         android:hint="nome@example.com"
@@ -203,7 +206,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padrao_margin"
         android:layout_marginLeft="@dimen/padrao_margin"
-        android:layout_marginTop="@dimen/padrao_margin"
+        android:layout_marginTop="@dimen/pequena_margin"
         android:fontFamily="@font/source_sans_pro"
         android:text="Senha"
         android:textColor="@color/colorBlack"
@@ -211,30 +214,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
-    <EditText
-        android:id="@+id/edit_senha"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_senha"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="@dimen/padrao_margin"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="@dimen/padrao_margin"
-        android:background="@drawable/custom_edit_text"
-        android:hint="6+ caracteres"
-        android:inputType="textPassword"
-        android:textSize="@dimen/fonte_padrao_pequena"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/text_senha"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorPrimary">
 
+        <EditText
+            android:hint="+6 caracteres"
+            android:id="@+id/edit_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edit_text"
+            android:inputType="textPassword"
+            android:textSize="@dimen/fonte_padrao_pequena"
+            app:passwordToggleEnabled="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padrao_margin"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/padrao_margin"
         android:layout_marginEnd="@dimen/padrao_margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_senha">
+        app:layout_constraintTop_toBottomOf="@+id/layout_senha">
 
         <CheckBox
             android:id="@+id/checkbox_termo"
@@ -248,7 +260,9 @@
             app:layout_constraintEnd_toStartOf="@id/button_termo_uso"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        </CheckBox>
 
         <TextView
             android:id="@+id/button_termo_uso"
@@ -269,12 +283,14 @@
 
     <Button
         android:id="@+id/button_cadastrar"
+
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginStart="@dimen/padrao_margin"
         android:layout_marginTop="@dimen/padrao_margin"
         android:layout_marginEnd="@dimen/padrao_margin"
         android:background="@drawable/custom_button"
+        android:elevation="2dp"
         android:fontFamily="@font/roboto"
         android:orientation="horizontal"
         android:text="Criar conta"
@@ -289,7 +305,7 @@
         android:id="@+id/text_mensagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/open_sans"
         android:text="Já tem uma conta? "
         android:textColor="@color/colorBlack"
