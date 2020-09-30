@@ -15,4 +15,10 @@
     <string name="email">Email</string>
     <string name="senha">Senha</string>
     <string name="ponto">&#8226;</string>
+    <string name="title_activity_teste">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_principal2">MainActivity</string>
+    <string name="title_activity_principal1">MainActivity</string>
 </resources>

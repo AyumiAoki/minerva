@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_conteudo">
+
+    <fragment
+        android:id="@+id/navigation_conteudo"
+        android:name="com.example.minerva.ui.ui.conteudo.ConteudoFragment"
+        android:label="Conteudo"
+        tools:layout="@layout/fragment_conteudo" />
+
+    <fragment
+        android:id="@+id/navigation_anotacao"
+        android:name="com.example.minerva.ui.ui.anotacao.AnotacaoFragment"
+        android:label="Anotacao"
+        tools:layout="@layout/fragment_anotacao" />
+
+    <fragment
+        android:id="@+id/navigation_agenda"
+        android:name="com.example.minerva.ui.ui.agenda.AgendaFragment"
+        android:label="Agenda"
+        tools:layout="@layout/fragment_agenda" />
+
+    <fragment
+        android:id="@+id/navigation_usuario"
+        android:name="com.example.minerva.ui.ui.usuario.UsuarioFragment"
+        android:label="Usuário"
+        tools:layout="@layout/fragment_usuario" />
+
+</navigation>

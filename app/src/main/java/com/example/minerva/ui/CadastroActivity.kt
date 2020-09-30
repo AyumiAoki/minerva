@@ -2,6 +2,8 @@ package com.example.minerva.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +18,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_cadastro.*
+import kotlinx.android.synthetic.main.activity_cadastro.button_cadastrar
+import kotlinx.android.synthetic.main.activity_cadastro.button_login
+import kotlinx.android.synthetic.main.activity_cadastro.edit_email
+import kotlinx.android.synthetic.main.activity_cadastro.edit_senha
+import kotlinx.android.synthetic.main.activity_cadastro.layout_senha
+import kotlinx.android.synthetic.main.activity_login.*
 
-class CadastroActivity : AppCompatActivity(), View.OnClickListener {
+
+class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mGoogleSignInClient: GoogleSignInClient
@@ -36,6 +45,16 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         button_cadastrar.setOnClickListener(this)
         button_cadastro_google.setOnClickListener(this)
         checkbox_termo.setOnClickListener(this)
+
+        edit_senha.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                edit_senha.error = null
+                layout_senha.isPasswordVisibilityToggleEnabled = true
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+        })
 
         servicosGoogle()
     }
@@ -56,6 +75,10 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.button_cadastro_google -> {
                 cadastroGoogle()
+            }
+
+            R.id.checkbox_termo -> {
+                button_termo_uso.error = null
             }
         }
 
@@ -94,7 +117,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
             startActivityForResult(intent, 555)
         }else{
             //Já existe algue conectado pelo google
-            // startActivity(Intent(applicationContext, MainActivity::class.java))
+            // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
             Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG)
                 .show()
 
@@ -114,7 +137,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
         if (nome.isEmpty()) {
             check = false
-            edit_name.error = "Campo obrigaóorio"
+            edit_name.error = "Campo obrigatório"
         } else if (!Util.validarNome(nome)){
             check = false
             edit_name.error = "Formato de nome invalído"
@@ -122,7 +145,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
         if (sobrenome.isEmpty()) {
             check = false
-            edit_sobrenome.error = "Campo obrigaóorio"
+            edit_sobrenome.error = "Campo obrigatório"
         } else if (!Util.validarNome(sobrenome)) {
             check = false
             edit_sobrenome.error = "Formato de nome invalído"
@@ -130,7 +153,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
         if (email.isEmpty()) {
             check = false
-            edit_email.error = "Campo obrigaóorio"
+            edit_email.error = "Campo obrigatório"
         } else if (!Util.validarEmail(email)) {
             check = false
             edit_email.error = "Insira um email válido"
@@ -138,17 +161,19 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
         if (senha.isEmpty()) {
             check = false
-            edit_senha.error = "Campo obrigaóorio"
+            layout_senha.isPasswordVisibilityToggleEnabled = true
+            layout_senha.isPasswordVisibilityToggleEnabled = false
+            edit_senha.error = "Campo obrigatório"
         } else if (Util.validarSenha(senha)) {
             check = false
+            layout_senha.isPasswordVisibilityToggleEnabled = true
+            layout_senha.isPasswordVisibilityToggleEnabled = false
             edit_senha.error = "Senha deve possuir 6 ou mais caracteres"
         }
 
         if (!checkbox_termo.isChecked) {
             check = false
-            checkbox_termo.error = "Você deve aceitar os termos para prosseguir"
-        } else {
-            checkbox_termo.error = null
+            button_termo_uso.error = "Você deve aceitar os termos para prosseguir"
         }
 
         if (!Util.statusInternet_MoWi(applicationContext)) {
@@ -163,6 +188,8 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         when (Util.errorFirebase(error)){
             ErrorsFirebase.SENHA_INVALIDA -> {
                 edit_senha.error = "Senha deve possuir 6 ou mais caracteres"
+                layout_senha.isPasswordVisibilityToggleEnabled = true
+                layout_senha.isPasswordVisibilityToggleEnabled = false
             }
             ErrorsFirebase.EMAIL_INVALIDO -> {
                 edit_email.error = "Insira um email válido"
@@ -192,10 +219,14 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                     finish()
                 }else{
-                    Toast.makeText(applicationContext, "Não foi possível salvar o nome", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        applicationContext,
+                        "Não foi possível salvar o nome",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
             }
@@ -215,10 +246,14 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(applicationContext, "Error ao logar com o Google", Toast.LENGTH_LONG)
+                    Toast.makeText(
+                        applicationContext,
+                        "Error ao logar com o Google",
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                 }
             }
@@ -244,4 +279,5 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener {
 
         }
     }
+
 }

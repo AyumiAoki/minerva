@@ -37,10 +37,10 @@ class SplashScreenActivity : AppCompatActivity(), Runnable {
 
             if (user != null ) {
                 finish()
-                startActivity(Intent(applicationContext, PrincipalActivity::class.java))
+                startActivity(Intent(applicationContext, MainActivity::class.java))
             } else {
                 finish()
-                startActivity(Intent(applicationContext, MainActivity::class.java))
+                startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
             }
 
         } catch (e: InterruptedException) {

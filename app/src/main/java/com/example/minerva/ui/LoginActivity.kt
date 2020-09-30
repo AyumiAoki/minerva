@@ -2,11 +2,12 @@ package com.example.minerva.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
-import com.example.minerva.service.SecurityPreferences
 import com.example.minerva.service.Util
 import com.example.minerva.service.constants.ErrorsFirebase
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,6 +17,11 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.button_cadastrar
+import kotlinx.android.synthetic.main.activity_login.button_login
+import kotlinx.android.synthetic.main.activity_login.edit_email
+import kotlinx.android.synthetic.main.activity_login.edit_senha
+import kotlinx.android.synthetic.main.activity_login.layout_senha
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -36,6 +42,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         button_cadastrar.setOnClickListener(this)
         button_login.setOnClickListener(this)
         button_login_google.setOnClickListener(this)
+        layout_senha.setOnClickListener(this)
+
+        edit_senha.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {
+                edit_senha.error = null
+                layout_senha.isPasswordVisibilityToggleEnabled = true
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+        })
 
         servicosGoogle()
     }
@@ -57,6 +74,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_recuperar_senha -> {
                 recuperarSenha()
             }
+
         }
     }
 
@@ -78,7 +96,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if (validarDados()) {
             mAuth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                     finish()
                 } else {
                     validacaoFirebase(it.exception.toString())
@@ -96,7 +114,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             startActivityForResult(intent, 555)
         }else{
             //Já existe algue conectado pelo google
-            // startActivity(Intent(applicationContext, MainActivity::class.java))
+            // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
             Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG)
                 .show()
 
@@ -117,9 +135,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
             ErrorsFirebase.SENHA_INVALIDA -> {
                 edit_senha.error = "Senha deve possuir 6 ou mais caracteres"
+                layout_senha.isPasswordVisibilityToggleEnabled = true
+                layout_senha.isPasswordVisibilityToggleEnabled = false
             }
             ErrorsFirebase.SENHA_INCORRETA -> {
                 edit_senha.error = "Senha inválida"
+                layout_senha.isPasswordVisibilityToggleEnabled = true
+                layout_senha.isPasswordVisibilityToggleEnabled = false
             }
             ErrorsFirebase.SEM_CONEXAO -> {
                 Toast.makeText(applicationContext, "Sem conexão com o Firebase", Toast.LENGTH_LONG)
@@ -150,10 +172,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //Validação campo senha
         if (senha.isEmpty()) {
             check = false
-            layout_senha.error = "Campo obrigatório"
+            layout_senha.isPasswordVisibilityToggleEnabled = true
+            layout_senha.isPasswordVisibilityToggleEnabled = false
+            edit_senha.error = "Campo obrigatório"
+
         } else if (Util.validarSenha(senha)) {
             check = false
+             layout_senha.isPasswordVisibilityToggleEnabled = true
+            layout_senha.isPasswordVisibilityToggleEnabled = false
+
             edit_senha.error = "Senha possui 6 ou mais caracteres"
+
         }
 
         //Verifica conexão com a internet
@@ -181,10 +210,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, PrincipalActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(applicationContext, "Error ao logar com o Google", Toast.LENGTH_LONG)
+                    Toast.makeText(
+                        applicationContext,
+                        "Error ao logar com o Google",
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                 }
             }
@@ -211,5 +244,4 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         }
     }
-
 }

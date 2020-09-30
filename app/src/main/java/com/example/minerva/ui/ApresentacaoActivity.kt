@@ -2,31 +2,34 @@ package com.example.minerva.ui
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.size
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.minerva.service.Dicas
 import com.example.minerva.R
-import kotlinx.android.synthetic.main.activity_tela_apresentacao.*
+import com.example.minerva.service.Dicas
+import kotlinx.android.synthetic.main.activity_apresentacao.*
 import kotlinx.android.synthetic.main.dica.view.*
 import java.lang.Math.abs
 
-class PresentationActivity : AppCompatActivity() {
+class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
-        setContentView(R.layout.activity_tela_apresentacao)
+
+        setContentView(R.layout.activity_apresentacao)
+
 
         val dicas = arrayListOf(
             Dicas(
@@ -57,16 +60,15 @@ class PresentationActivity : AppCompatActivity() {
             )
         )
 
-        addPontos(dicas.size)
+        //    addPontos(dicas.size)
         tela_apresentacao.adapter = onboardingAdapter(dicas)
 
-        tela_apresentacao.setPageTransformer(true){
-                page, position ->
+        tela_apresentacao.setPageTransformer(true) { page, position ->
             page.alpha = 1 - abs(position)
             page.translationX = -position * page.width
         }
 
-        tela_apresentacao.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+        tela_apresentacao.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -78,41 +80,34 @@ class PresentationActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                addPontos(dicas.size, position)
+                estadoBotoes(position)
+                //addPontos(dicas.size, position)
             }
         })
 
-        proximo.setOnClickListener{
-            if(tela_apresentacao.currentItem - 1  == tela_apresentacao.size) {
-                intent = Intent(applicationContext, LoginActivity::class.java)
-                finish()
-                startActivity(intent)
-            } else {
-                tela_apresentacao.setCurrentItem(tela_apresentacao.currentItem + 1, true)
-            }
-        }
-
-        pular.setOnClickListener{
-            intent = Intent(applicationContext, IntroductionActivity::class.java)
-            finish()
-            startActivity(intent)
-        }
+        println(button_proximo.text.toString())
+        button_proximo.setOnClickListener(this)
+        button_pular.setOnClickListener(this)
     }
 
+    /*
     private fun addPontos(size: Int, position: Int = 0) {
         ponto.removeAllViews()
-        Array(size){
+        Array(size) {
             val textView = TextView(baseContext).apply {
                 text = getText(R.string.ponto)
                 textSize = 40f
                 setTextColor(
-                    if(position == it) ContextCompat.getColor(baseContext, android.R.color.holo_blue_dark)
+                    if (position == it) ContextCompat.getColor(
+                        baseContext,
+                        android.R.color.holo_blue_dark
+                    )
                     else ContextCompat.getColor(baseContext, android.R.color.darker_gray)
                 )
             }
             ponto.addView(textView)
         }
-    }
+    }*/
 
     private inner class onboardingAdapter(val dicas: ArrayList<Dicas>) : PagerAdapter() {
 
@@ -122,12 +117,11 @@ class PresentationActivity : AppCompatActivity() {
 
             with(dicas[position]) {
 
-                view.titulo_dicas.text = titulo
-                view.subtitulo_dicas.text = subtitulo
+                view.text_titulo_dicas.text = titulo
+                view.text_subtitulo_dicas.text = subtitulo
                 view.logo_dicas.setImageResource(logo)
-                view.background = ContextCompat.getDrawable(this@PresentationActivity, background)
+                view.background = ContextCompat.getDrawable(this@ApresentacaoActivity, background)
             }
-
 
             container.addView(view)
 
@@ -145,6 +139,64 @@ class PresentationActivity : AppCompatActivity() {
 
         override fun getCount(): Int = dicas.size
 
+    }
+
+
+    /*fun mudancaProximo(){
+        if(tela_apresentacao.currentItem + 1  == tela_apresentacao.size){
+            button_proximo.text = "Começar"
+        }
+        if(tela_apresentacao.currentItem == 0){
+            button_pular.text = "<"
+        }
+    }
+
+    fun mudancaPular(){
+        if(tela_apresentacao.currentItem - 1  == tela_apresentacao.size){
+            button_proximo.text = ">"
+        }
+        if(tela_apresentacao.currentItem - 1 == 0){
+            button_pular.text = "Pular"
+        }
+    }*/
+
+    fun estadoBotoes(position: Int) {
+        if (position == 0) {
+            button_pular.text = "Pular"
+            button_proximo.text = "—ᐳ"
+        } else if (position == 3) {
+            button_proximo.text = "Começar"
+            button_pular.text = "ᐸ—"
+        } else {
+            button_pular.text = "ᐸ—"
+            button_proximo.text = "—ᐳ"
+        }
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.button_proximo -> {
+                if (tela_apresentacao.currentItem - 1 == tela_apresentacao.size) {
+                    intent = Intent(applicationContext, IntroducaoActivity::class.java)
+                    finish()
+                    startActivity(intent)
+                } else {
+                    estadoBotoes(tela_apresentacao.currentItem - 1)
+                    tela_apresentacao.setCurrentItem(tela_apresentacao.currentItem + 1, true)
+                }
+            }
+            R.id.button_pular -> {
+                if (tela_apresentacao.currentItem == 0) {
+                    intent = Intent(applicationContext, IntroducaoActivity::class.java)
+                    finish()
+                    startActivity(intent)
+                } else {
+                    estadoBotoes(tela_apresentacao.currentItem - 1)
+                    tela_apresentacao.setCurrentItem(tela_apresentacao.currentItem - 1, true)
+                }
+
+            }
+        }
     }
 }
 

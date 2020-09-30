@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:fillViewport="true"
-    tools:context=".ui.CadastroActivity"
-    android:background="@color/colorWhite">
+    tools:context=".ui.CadastroActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/testee"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/text_nome_app"
             android:layout_width="wrap_content"
@@ -73,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padrao_margin"
-            android:layout_marginEnd="@dimen/padrao_margin"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="@dimen/padrao_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginLeft="@dimen/padrao_margin"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
             android:layout_marginRight="@dimen/padrao_margin"
             android:orientation="horizontal"
@@ -161,8 +163,8 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1.5"
-                android:inputType="textPersonName"
                 android:background="@drawable/custom_edit_text"
+                android:inputType="textPersonName"
                 android:textSize="@dimen/fonte_padrao_pequena" />
 
             <EditText
@@ -195,7 +197,7 @@
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:layout_marginStart="@dimen/padrao_margin"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
             android:background="@drawable/custom_edit_text"
             android:hint="nome@example.com"
@@ -223,19 +225,22 @@
             android:id="@+id/layout_senha"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginTop="4dp"
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginEnd="@dimen/padrao_margin"
+            app:hintAnimationEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_senha"
+            app:hintEnabled="false"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/colorPrimary">
 
             <EditText
-                android:hint="+6 caracteres"
                 android:id="@+id/edit_senha"
+                android:hint="+6 caracteres"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPassword"
                 android:textSize="@dimen/fonte_padrao_pequena"
@@ -318,8 +323,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_login"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-         />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/button_login"

@@ -36,7 +36,7 @@ class RecuperarSenhaActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun recuperarSenha() {
-        val email = edit_recuperar_senha.text.toString()
+        val email = edit_email_recuperar_senha.text.toString()
         if(validarDados()) {
             auth.sendPasswordResetEmail(email).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
@@ -56,10 +56,10 @@ class RecuperarSenhaActivity : AppCompatActivity(), View.OnClickListener {
     private fun validacaoFirebase(error: String) {
         when (Util.errorFirebase(error)){
             ErrorsFirebase.EMAIL_INVALIDO -> {
-                edit_recuperar_senha.error = "Insira um email válido"
+                edit_email_recuperar_senha.error = "Insira um email válido"
             }
             ErrorsFirebase.EMAIL_NAO_CADASTRADO -> {
-                edit_recuperar_senha.error = "Este e-mail não está cadastrado"
+                edit_email_recuperar_senha.error = "Este e-mail não está cadastrado"
             }
             ErrorsFirebase.SEM_CONEXAO -> {
                 Toast.makeText(applicationContext, "Sem conexão com o Firebase", Toast.LENGTH_LONG)
@@ -75,15 +75,15 @@ class RecuperarSenhaActivity : AppCompatActivity(), View.OnClickListener {
     private fun validarDados(): Boolean {
         var check = true
 
-        val email = edit_recuperar_senha.text.toString()
+        val email = edit_email_recuperar_senha.text.toString()
 
         //Validação campo email
         if (email.isEmpty()) {
             check = false
-            edit_recuperar_senha.error = "Campo obrigatório"
+            edit_email_recuperar_senha.error = "Campo obrigatório"
         } else if (!Util.validarEmail(email)) {
             check = false
-            edit_recuperar_senha.error = "Insira um formato de email válido"
+            edit_email_recuperar_senha.error = "Insira um formato de email válido"
         }
 
         //Verifica conexão com a internet

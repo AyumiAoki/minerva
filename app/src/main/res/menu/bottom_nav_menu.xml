@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_conteudo"
+        android:icon="@drawable/ic_conteudo"
+        android:title="Conteúdo" />
+
+    <item
+        android:id="@+id/navigation_anotacao"
+        android:icon="@drawable/ic_anotacao"
+        android:enabled="true"
+        android:title="Anotação" />
+
+    <item
+        android:id="@+id/navigation_agenda"
+        android:icon="@drawable/ic_agenda"
+        android:enabled="true"
+        android:title="Agenda" />
+
+    <item
+        android:id="@+id/navigation_usuario"
+        android:enabled="true"
+        android:icon="@drawable/ic_usuario"
+        android:title="Usuário" />
+
+</menu>

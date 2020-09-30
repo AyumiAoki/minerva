@@ -69,7 +69,7 @@ class Util {
         }
 
         fun statusInternet_MoWi(context: Context): Boolean {
-            var status = false
+            var status: Boolean
             val conexao = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             if (conexao != null) {
 

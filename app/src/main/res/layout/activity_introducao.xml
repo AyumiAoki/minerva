@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.IntroductionActivity">
+        tools:context=".ui.IntroducaoActivity">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -20,18 +20,18 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/img_entrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/img_entrar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/button_login_google_2"
+            android:id="@+id/button_login_google"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/padrao_margin"
             android:background="@drawable/custom_button"
             android:longClickable="false"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,11 +75,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_login_google_2">
+            app:layout_constraintTop_toBottomOf="@+id/button_login_google">
 
             <View
                 android:layout_width="wrap_content"
@@ -94,10 +94,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/roboto_light"
                 android:text="ou com email"
                 android:textColor="@color/colorBlack"
-                android:textSize="12sp" />
+                android:textSize="8sp" />
 
             <View
                 android:layout_width="wrap_content"
@@ -110,49 +110,41 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/button_entrar"
+            android:id="@+id/button_login"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="@dimen/padrao_margin"
+            android:layout_marginLeft="@dimen/padrao_margin"
             android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto"
             android:text="Entrar"
             android:textAllCaps="false"
             android:textColor="@drawable/custom_text_buttom"
             android:textSize="@dimen/fonte_padrao_media"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_cadastrar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relative_ou"
-            android:onClick="entrar"/>
+            app:layout_constraintTop_toBottomOf="@+id/relative_ou" />
 
-        <TextView
-            android:id="@+id/text_nao_conta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/open_sans"
-            android:text="Não tem conta? "
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/fonte_padrao_pequena"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_cadastrar"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
+        <Button
             android:id="@+id/button_cadastrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans"
-            android:text="Cadastre-se"
-            android:textColor="@drawable/custom_view_text"
-            android:textSize="@dimen/fonte_padrao_pequena"
-            app:layout_constraintBottom_toBottomOf="@id/text_nao_conta"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/padrao_margin"
+            android:layout_marginRight="@dimen/padrao_margin"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto"
+            android:text="Cadastrar"
+            android:textAllCaps="false"
+            android:textColor="@drawable/custom_text_buttom"
+            android:textSize="@dimen/fonte_padrao_media"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_nao_conta"
-            app:layout_constraintTop_toTopOf="@id/text_nao_conta" />
+            app:layout_constraintStart_toEndOf="@id/button_login"
+            app:layout_constraintTop_toTopOf="@id/button_login"
+            app:layout_constraintBottom_toBottomOf="@id/button_login"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

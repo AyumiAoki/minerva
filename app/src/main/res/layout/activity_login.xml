@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/colorWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.IntroductionActivity">
+        tools:context=".ui.IntroducaoActivity">
 
         <TextView
             android:id="@+id/text_nome_app"
@@ -124,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="38dp"
             android:layout_marginStart="@dimen/padrao_margin"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
             android:background="@drawable/custom_edit_text"
             android:hint="nome@example.com"
@@ -151,13 +152,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_senha"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="4dp"
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginEnd="@dimen/padrao_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_senha"
             app:passwordToggleEnabled="true"
+            app:hintEnabled="false"
             app:passwordToggleTint="@color/colorPrimary">
 
             <EditText

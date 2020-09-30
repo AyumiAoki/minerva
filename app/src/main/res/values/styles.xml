@@ -20,4 +20,8 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="NavigationItemAppearance">
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+    </style>
 </resources>
