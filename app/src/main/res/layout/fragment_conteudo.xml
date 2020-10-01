@@ -1,195 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ui.conteudo.ConteudoFragment">
+    android:fillViewport="true"
+    android:background="@color/colorWhite">
 
-    <TextView
-        android:id="@+id/text_nome_usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="Olá, Francisco"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ui.conteudo.ConteudoFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="#3BA8BC"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_nome_usuario">
+        <TextView
+            android:id="@+id/text_nome_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="Olá, Francisco"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="86dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/ic_anotacao"
-            app:tint="#1D6873" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:backgroundTint="#3BA8BC"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_nome_usuario">
 
-        <TextView
-            android:gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:text="Ciêcias \nhumanas"
-            android:textColor="#1D6873"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/ic_anotacao"
+                app:tint="#1D6873" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="#E46C49"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView">
+            <TextView
+                android:gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/roboto"
+                android:text="Ciêcias \nhumanas"
+                android:textColor="#1D6873"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="86dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/ic_anotacao"
-            app:tint="#85341A" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:backgroundTint="#E46C49"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView">
 
-        <TextView
-            android:gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:text="Ciêcias da\nnatureza"
-            android:textColor="#85341A"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/ic_anotacao"
+                app:tint="#85341A" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="0dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="#3BBC7B"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView2">
+            <TextView
+                android:gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/roboto"
+                android:text="Ciêcias da\nnatureza"
+                android:textColor="#85341A"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="0dp"
+            android:layout_height="86dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/ic_anotacao"
-            app:tint="#26724B" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:backgroundTint="#3BBC7B"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView2">
 
-        <TextView
-            android:gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:text="Linguagens e\nCódigos"
-            android:textColor="#26724B"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/ic_anotacao"
+                app:tint="#26724B" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
-        android:layout_width="0dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:backgroundTint="#E2CB4B"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView3">
+            <TextView
+                android:gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/roboto"
+                android:text="Linguagens e\nCódigos"
+                android:textColor="#26724B"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="0dp"
+            android:layout_height="86dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="6dp"
-            android:src="@drawable/ic_anotacao"
-            app:tint="#8D7728" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:backgroundTint="#E2CB4B"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView3">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginBottom="6dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="end"
-            android:text="Matemática e\nsuas tecnologias"
-            android:textColor="#8D7728"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/ic_anotacao"
+                app:tint="#8D7728" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="end"
+                android:text="Matemática e\nsuas tecnologias"
+                android:textColor="#8D7728"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

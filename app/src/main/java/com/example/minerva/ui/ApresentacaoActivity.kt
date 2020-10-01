@@ -141,25 +141,6 @@ class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-
-    /*fun mudancaProximo(){
-        if(tela_apresentacao.currentItem + 1  == tela_apresentacao.size){
-            button_proximo.text = "Começar"
-        }
-        if(tela_apresentacao.currentItem == 0){
-            button_pular.text = "<"
-        }
-    }
-
-    fun mudancaPular(){
-        if(tela_apresentacao.currentItem - 1  == tela_apresentacao.size){
-            button_proximo.text = ">"
-        }
-        if(tela_apresentacao.currentItem - 1 == 0){
-            button_pular.text = "Pular"
-        }
-    }*/
-
     fun estadoBotoes(position: Int) {
         if (position == 0) {
             button_pular.text = "Pular"
