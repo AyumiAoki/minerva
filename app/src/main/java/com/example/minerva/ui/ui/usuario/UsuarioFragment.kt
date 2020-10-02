@@ -21,8 +21,7 @@ class UsuarioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        usuarioViewModel =
-            ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
+        usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_usuario, container, false)
        /* val textView: TextView = root.findViewById(R.id.text_notifications)
         usuarioViewModel.text.observe(viewLifecycleOwner, Observer {
