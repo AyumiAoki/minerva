@@ -4,25 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.IntroducaoActivity">
+        android:layout_height="wrap_content"
+        tools:context=".ui.activities.IntroducaoActivity">
+
+        <ImageView
+            android:id="@+id/imagem_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="18dp"
+            android:src="@drawable/ic_coruja_baixo_direita"
+            app:layout_constraintBottom_toBottomOf="@+id/text_nome_app"
+            app:layout_constraintEnd_toStartOf="@+id/text_nome_app"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/text_nome_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="42dp"
             android:fontFamily="@font/rammetto_one"
             android:text="@string/nomeApp"
-            android:textColor="#000"
+            android:textColor="@color/colorPrimary"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagem_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,14 +56,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="Logo Google"
                 android:src="@drawable/ic_logo_google"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/text_logar"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@drawable/custom_view_text_google"
-                android:layout_marginRight="8dp" />
+                app:tint="@drawable/custom_view_text_google" />
 
             <TextView
                 android:id="@+id/text_logar"
@@ -82,7 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@id/text_ou"
                 android:layout_toRightOf="@id/text_ou"
                 android:background="@color/colorPrimary" />
 
@@ -94,7 +111,7 @@
                 android:fontFamily="@font/roboto_light"
                 android:text="@string/ou"
                 android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="wrap_content"
@@ -102,6 +119,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:layout_toStartOf="@id/text_ou"
                 android:layout_toLeftOf="@id/text_ou"
                 android:background="@color/colorPrimary" />
 
@@ -128,6 +146,7 @@
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
+            android:autofillHints="Email"
             android:background="@drawable/custom_edit_text"
             android:hint="nome@example.com"
             android:inputType="textEmailAddress"
@@ -154,20 +173,21 @@
             android:id="@+id/layout_senha"
             android:layout_width="match_parent"
             android:layout_height="38dp"
-            android:layout_marginTop="4dp"
             android:layout_marginStart="@dimen/padrao_margin"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_senha"
             app:passwordToggleEnabled="true"
-            app:hintEnabled="false"
             app:passwordToggleTint="@color/colorPrimary">
 
             <EditText
                 android:id="@+id/edit_senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="Senha"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPassword"
                 android:textSize="@dimen/fonte_padrao_pequena"
@@ -207,7 +227,8 @@
             android:textSize="@dimen/fonte_padrao_media"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_recuperar_senha" />
+            app:layout_constraintTop_toBottomOf="@+id/button_recuperar_senha"
+            tools:targetApi="lollipop" />
 
         <TextView
             android:id="@+id/text_nao_conta"

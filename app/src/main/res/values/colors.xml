@@ -2,8 +2,16 @@
 <resources>
     <color name="colorPrimary">#0CD1E8</color>
     <color name="colorSecondary">#0DFFD5</color>
+    <color name="colorAzulFraco">#ebfcff</color>
     <color name='colorWhite'>#fff</color>
     <color name="colorBlack">#000</color>
     <color name="campoFoco">#E8FCFF</color>
-
+    <color name="azul">#3BA8BC</color>
+    <color name="azulEscuro">#1D6873</color>
+    <color name="vermelho">#E46C49</color>
+    <color name="vermelhoEscuro">#85341A</color>
+    <color name="amarelo">#E2CB4B</color>
+    <color name="amareloEscuro">#8D7728</color>
+    <color name="verde">#3BBC7B</color>
+    <color name="verdeEscuro">#26724B</color>
 </resources>

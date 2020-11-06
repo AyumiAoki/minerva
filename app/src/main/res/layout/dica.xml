@@ -11,7 +11,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Imagem carrosel" />
 
     <TextView
         android:id="@+id/text_titulo_dicas"
@@ -45,7 +46,7 @@
         android:fontFamily="@font/lato"
         android:text="aaaaaaaaaaaaaa"
         android:textColor="@color/colorBlack"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_meio" />

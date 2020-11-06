@@ -6,12 +6,25 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:fillViewport="true"
-    tools:context=".ui.CadastroActivity">
+    tools:context=".ui.activities.CadastroActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/testee"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagem_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="18dp"
+            android:src="@drawable/ic_coruja_baixo_direita"
+            app:layout_constraintBottom_toBottomOf="@+id/text_nome_app"
+            app:layout_constraintEnd_toStartOf="@+id/text_nome_app"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/text_nome_app"
@@ -20,10 +33,10 @@
             android:layout_marginTop="42dp"
             android:fontFamily="@font/rammetto_one"
             android:text="@string/nomeApp"
-            android:textColor="#000"
+            android:textColor="@color/colorPrimary"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imagem_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +65,8 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@drawable/custom_view_text_google" />
+                app:tint="@drawable/custom_view_text_google"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/text_cadastrar"
@@ -88,7 +102,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="8dp"
                 android:layout_toRightOf="@id/text_ou"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/text_ou" />
 
             <TextView
                 android:id="@+id/text_ou"
@@ -98,7 +114,7 @@
                 android:fontFamily="@font/roboto_light"
                 android:text="OU"
                 android:textColor="@color/colorBlack"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="wrap_content"
@@ -107,7 +123,8 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@id/text_ou"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:layout_toStartOf="@id/text_ou" />
 
         </RelativeLayout>
 
@@ -166,7 +183,8 @@
                 android:layout_weight="1.5"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/fonte_padrao_pequena" />
+                android:textSize="@dimen/fonte_padrao_pequena"
+                android:autofillHints="Nome" />
 
             <EditText
                 android:id="@+id/edit_sobrenome"
@@ -175,7 +193,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/fonte_padrao_pequena" />
+                android:textSize="@dimen/fonte_padrao_pequena"
+                android:autofillHints="sobrenome" />
 
         </LinearLayout>
 
@@ -206,7 +225,8 @@
             android:textSize="@dimen/fonte_padrao_pequena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_email" />
+            app:layout_constraintTop_toBottomOf="@+id/text_email"
+            android:autofillHints="email" />
 
         <TextView
             android:id="@+id/text_senha"
@@ -245,7 +265,8 @@
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPassword"
                 android:textSize="@dimen/fonte_padrao_pequena"
-                app:passwordToggleEnabled="true" />
+                app:passwordToggleEnabled="true"
+                android:autofillHints="senha" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -271,7 +292,8 @@
                 app:layout_constraintEnd_toStartOf="@id/button_termo_uso"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop">
 
             </CheckBox>
 
@@ -310,7 +332,8 @@
             android:textSize="@dimen/fonte_padrao_media"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_check" />
+            app:layout_constraintTop_toBottomOf="@+id/constraint_check"
+            tools:targetApi="lollipop" />
 
         <TextView
             android:id="@+id/text_mensagem"
@@ -318,13 +341,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/open_sans"
+            android:layout_marginTop="16dp"
             android:text="Já tem uma conta? "
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/fonte_padrao_pequena"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_login"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_cadastrar" />
 
         <TextView
             android:id="@+id/button_login"

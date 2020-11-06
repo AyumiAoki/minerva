@@ -8,11 +8,9 @@
     android:background="@color/colorWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.RecuperarSenhaActivity">
+        android:layout_height="wrap_content"
+        tools:context=".ui.activities.RecuperarSenhaActivity">
 
         <TextView
             android:id="@+id/text_titulo_recuperar_senha"
@@ -72,7 +70,8 @@
             android:textSize="@dimen/fonte_padrao_pequena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_email_recuperar_senha" />
+            app:layout_constraintTop_toBottomOf="@+id/text_email_recuperar_senha"
+            android:autofillHints="Email" />
 
         <Button
             android:id="@+id/button_recuperar_senha"
@@ -89,7 +88,8 @@
             android:textColor="@drawable/custom_text_buttom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_email_recuperar_senha" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_email_recuperar_senha"
+            tools:targetApi="lollipop" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

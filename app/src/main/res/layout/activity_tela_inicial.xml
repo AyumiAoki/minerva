@@ -10,8 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.TelaInicialActivity">
+        android:layout_height="wrap_content"
+        tools:context=".ui.activities.TelaInicialActivity">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -61,19 +61,19 @@
 
 
         <Button
-            android:id="@+id/btn_começar"
+            android:id="@+id/button_começar"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/custom_button_presentation"
             android:elevation="8dp"
-            android:onClick="comecar"
             android:text="&#5171;"
             android:textColor="@drawable/custom_view_text_google"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="lollipop" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

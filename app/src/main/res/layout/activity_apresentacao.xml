@@ -8,8 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.ApresentacaoActivity">
+        android:layout_height="wrap_content"
+        tools:context=".ui.activities.ApresentacaoActivity">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/tela_apresentacao"
@@ -28,10 +28,10 @@
             android:text="Pular"
             android:textAllCaps="false"
             android:textColor="@drawable/custom_view_text_google"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="lollipop" />
 
         <Button
             android:id="@+id/button_proximo"
@@ -46,9 +46,10 @@
             android:text="&#8212;&#5171;"
             android:textAllCaps="false"
             android:textColor="@drawable/custom_view_text_google"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:targetApi="lollipop" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
