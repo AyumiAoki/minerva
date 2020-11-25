@@ -9,47 +9,78 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#0CD1E8"
         tools:context=".ui.activities.ApresentacaoActivity">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/tela_apresentacao"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="#0CD1E8"
+            />
 
-        <Button
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_proximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:layout_marginEnd="@dimen/padrao_margin"
+            android:layout_marginRight="@dimen/padrao_margin"
+            android:backgroundTint="#0CD1E8"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="0px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:targetApi="lollipop">
+
+            <TextView
+                android:id="@+id/text_button_proximo"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#8212;&#5171;"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/button_pular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginLeft="@dimen/padrao_margin"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/custom_button_presentation"
-            android:elevation="8dp"
-            android:text="Pular"
-            android:textAllCaps="false"
-            android:textColor="@drawable/custom_view_text_google"
-            android:textSize="16sp"
+            android:backgroundTint="#0CD1E8"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="0px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:targetApi="lollipop" />
+            tools:targetApi="lollipop">
 
-        <Button
-            android:id="@+id/button_proximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/padrao_margin"
-            android:layout_marginRight="@dimen/padrao_margin"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/custom_button_presentation"
-            android:elevation="8dp"
-            android:scaleType="centerCrop"
-            android:text="&#8212;&#5171;"
-            android:textAllCaps="false"
-            android:textColor="@drawable/custom_view_text_google"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:targetApi="lollipop" />
+            <TextView
+                android:id="@+id/text_button_pular"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pular"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

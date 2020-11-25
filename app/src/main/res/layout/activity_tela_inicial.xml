@@ -11,32 +11,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#0CD1E8"
         tools:context=".ui.activities.TelaInicialActivity">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_apresentacao2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_bem_vindo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center_horizontal"
-            android:text="Bem-Vindo"
+            android:text="Bem-vindo!"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:textSize="36sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tela_inicial"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,33 +47,36 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/padrao_margin"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="@dimen/padrao_margin"
             android:fontFamily="@font/source_sans_pro"
             android:gravity="center_horizontal"
-            android:text="Minerva é o seu novo aplicativo para revisar os conteúdos do ENEM."
+            android:text="@string/texto_inicial"
             android:textAlignment="center"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_bem_vindo" />
-
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <Button
             android:id="@+id/button_começar"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/custom_button_presentation"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginBottom="58dp"
+            android:paddingTop="0dp"
+            android:background="@drawable/custom_button_tela_inicial"
             android:elevation="8dp"
-            android:text="&#5171;"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="@string/iniciar"
             android:textColor="@drawable/custom_view_text_google"
-            android:textSize="24sp"
+            android:textAllCaps="false"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:targetApi="lollipop" />
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

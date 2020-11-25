@@ -22,7 +22,7 @@ class TelaInicialActivity : AppCompatActivity() {
         }
     }
 
-    fun comecar() {
+    private fun comecar() {
         val intent = Intent(applicationContext, ApresentacaoActivity::class.java)
         startActivity(intent)
     }

@@ -25,29 +25,29 @@ class ConteudoFragment : Fragment() {
         conteudoViewModel = ViewModelProviders.of(this).get(ConteudoViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_conteudo, container, false)
         val textView: TextView = root.findViewById(R.id.text_nome_usuario)
-        conteudoViewModel.text.observe(viewLifecycleOwner, Observer {
+        conteudoViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
 
         val buttonCienciasHumanas = root.findViewById<View>(R.id.button_ciencias_humanas)
-        buttonCienciasHumanas.setOnClickListener(View.OnClickListener {
+        buttonCienciasHumanas.setOnClickListener {
             mListener.onCreateConteudo(1)
-        })
+        }
 
         val buttonCienciasNatureza = root.findViewById<View>(R.id.button_ciencias_natureza)
-        buttonCienciasNatureza.setOnClickListener(View.OnClickListener {
+        buttonCienciasNatureza.setOnClickListener {
             mListener.onCreateConteudo(2)
-        })
+        }
 
         val buttonLinguagens = root.findViewById<View>(R.id.button_lingugens)
-        buttonLinguagens.setOnClickListener(View.OnClickListener {
+        buttonLinguagens.setOnClickListener {
             mListener.onCreateConteudo(3)
-        })
+        }
 
         val buttonMatematica = root.findViewById<View>(R.id.button_matematica)
-        buttonMatematica.setOnClickListener(View.OnClickListener {
+        buttonMatematica.setOnClickListener {
             mListener.onCreateConteudo(4)
-        })
+        }
 
         return root
     }

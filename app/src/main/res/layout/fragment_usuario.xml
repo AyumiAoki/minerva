@@ -15,23 +15,74 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/button_editar_foto"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00A3FF"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="90dp"
+            app:layout_constraintEnd_toEndOf="@+id/image_usuario"
+            app:layout_constraintTop_toTopOf="@+id/image_usuario">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:contentDescription="Imagem editar"
+                android:padding="4dp"
+                android:src="@drawable/ic_editar"
+                android:tint="@color/colorWhite" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_mudar_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:backgroundTint="#00A3FF"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/text_nome_usuario_usuario"
             app:layout_constraintStart_toEndOf="@+id/text_nome_usuario_usuario"
             app:layout_constraintTop_toTopOf="@+id/text_nome_usuario_usuario">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
+                android:contentDescription="Imagem editar"
                 android:padding="4dp"
                 android:src="@drawable/ic_editar"
-                android:tint="@color/colorBlack"
-                android:contentDescription="Imagem editar" />
+                android:tint="@color/colorWhite" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_sair_mudar_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#00A3FF"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:visibility="invisible"
+            app:cardCornerRadius="90dp"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_mudar_nome"
+            app:layout_constraintStart_toEndOf="@+id/edit_mudar_nome"
+            app:layout_constraintTop_toTopOf="@+id/edit_mudar_nome">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:contentDescription="Imagem editar"
+                android:padding="4dp"
+                android:src="@drawable/ic_close"
+                android:tint="@color/colorWhite" />
         </androidx.cardview.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -39,12 +90,28 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="16dp"
-            android:src="@drawable/raiva"
+            android:src="@drawable/padrao"
             app:layout_constraintBottom_toTopOf="@+id/text_nome_usuario_usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/edit_mudar_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            android:imeOptions="actionDone"
+            android:inputType="textImeMultiLine"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_usuario" />
 
         <TextView
             android:id="@+id/text_nome_usuario_usuario"
@@ -74,12 +141,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardElevation="0px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:focusable="true">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -91,11 +158,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
+                    android:contentDescription="Imagem atividade"
                     android:src="@drawable/ic_atividade"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="Imagem atividade" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_desempenho"
@@ -129,12 +196,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardElevation="0px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_atividade"
-            android:focusable="true">
+            app:layout_constraintTop_toBottomOf="@+id/button_atividade">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -146,11 +213,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
+                    android:contentDescription="Imagem desempenho"
                     android:src="@drawable/ic_desempenho"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="Imagem desempenho" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_grafico_desempenho"
@@ -184,12 +251,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardElevation="0px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_grafico_desempenho"
-            android:focusable="true">
+            app:layout_constraintTop_toBottomOf="@+id/button_grafico_desempenho">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -201,11 +268,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
+                    android:contentDescription="Imagem conquistas"
                     android:src="@drawable/ic_conquistas"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="Imagem conquistas" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_conquistas"
@@ -241,12 +308,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardElevation="0px"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_conquistas"
-            android:focusable="true">
+            app:layout_constraintTop_toBottomOf="@+id/button_conquistas">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -258,11 +325,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
+                    android:contentDescription="Imagem sair"
                     android:src="@drawable/ic_desempenho"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="Imagem sair" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/text_sair"

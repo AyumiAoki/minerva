@@ -82,7 +82,9 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
                 OnCompleteListener<AuthResult?> { task ->
                     if (task.isSuccessful) {
                         finish()
-                        startActivity(Intent(baseContext, MainActivity::class.java))
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        startActivity(intent)
                     } else {
                         Toast.makeText(
                             applicationContext,
@@ -111,7 +113,9 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                     finish()
                 } else {
                     Toast.makeText(

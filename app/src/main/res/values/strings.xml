@@ -21,4 +21,10 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_principal2">MainActivity</string>
     <string name="title_activity_principal1">MainActivity</string>
+    <string name="texto_inicial"><b>Minerva</b>  é o seu novo aplicativo\n<br></br>
+para revisar os conteúdos do ENEM.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iniciar">Iniciar</string>
 </resources>

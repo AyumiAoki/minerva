@@ -11,8 +11,8 @@ class IndustrializacaoActivity : AppCompatActivity() {
 
         if (supportActionBar != null) {
             supportActionBar!!.title = "Industrializacao"
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true); //Mostrar o botão
-            supportActionBar!!.setHomeButtonEnabled(true);      //Ativar o botão
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
+            supportActionBar!!.setHomeButtonEnabled(true)    //Ativar o botão
         }
         setContentView(R.layout.activity_industrializacao)
 
@@ -20,7 +20,7 @@ class IndustrializacaoActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar
-        when (item.getItemId()) {
+        when (item.itemId) {
             android.R.id.home -> {
                 /*startActivity(
                     Intent(

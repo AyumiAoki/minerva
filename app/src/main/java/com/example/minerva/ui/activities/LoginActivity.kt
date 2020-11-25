@@ -16,7 +16,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.button_cadastrar
 import kotlinx.android.synthetic.main.activity_login.button_login
@@ -97,7 +96,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         if (validarDados()) {
             mAuth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                     finish()
                 } else {
                     validacaoFirebase(it.exception.toString())
@@ -107,7 +108,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loginGoogle(){
-
         val account = GoogleSignIn.getLastSignedInAccount(this)
 
         if(account == null){
@@ -116,8 +116,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }else{
             //Já existe algue conectado pelo google
             // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
-            Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG)
-                .show()
+            Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG).show()
 
             mGoogleSignInClient.signOut()
         }
@@ -145,12 +144,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 layout_senha.isPasswordVisibilityToggleEnabled = false
             }
             ErrorsFirebase.SEM_CONEXAO -> {
-                Toast.makeText(applicationContext, "Sem conexão com o Firebase", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(applicationContext, "Sem conexão com o Firebase", Toast.LENGTH_LONG).show()
             }
             else ->{
-                Toast.makeText(applicationContext, error, Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(applicationContext, error, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -189,8 +186,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //Verifica conexão com a internet
         if (!Util.statusInternetMoWi(applicationContext)) {
             check = false
-            Toast.makeText(applicationContext, "Sem conexão com a internet", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(applicationContext, "Sem conexão com a internet", Toast.LENGTH_SHORT).show()
         }
         return check
     }
@@ -211,15 +207,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Error ao logar com o Google",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    Toast.makeText(applicationContext, "Error ao logar com o Google", Toast.LENGTH_LONG).show()
                 }
             }
     }
@@ -231,18 +224,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         if (requestCode == 555){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-
             try {
                 val account = task.getResult(ApiException::class.java)
-
                 adicionarContaGoogleFirebase(account!!.idToken ?: "nice")
-
             } catch (e: ApiException) {
-
-                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
             }
-
         }
     }
 }

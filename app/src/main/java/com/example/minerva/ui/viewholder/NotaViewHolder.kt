@@ -1,47 +1,54 @@
 package com.example.minerva.ui.viewholder
 
-import android.app.AlertDialog
+import android.graphics.Color
 import android.view.View
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minerva.R
-import com.example.minerva.service.model.NotaModel
-import com.example.minerva.ui.listener.NotaListener
-import kotlinx.android.synthetic.main.row_nota.view.*
+import com.example.minerva.service.constants.CoresNotasConstants
+import com.example.minerva.service.model.NotaListModel
+import com.example.minerva.ui.listener.NotaListListener
 
-class NotaViewHolder(itemView: View, private val listener: NotaListener) :
+class NotaViewHolder(itemView: View, private val listListener: NotaListListener) :
     RecyclerView.ViewHolder(itemView) {
 
-    fun bind(nota: NotaModel) {
+    fun bind(nota: NotaListModel) {
 
         // Obtém os elementos de interface
         val textTitulo = itemView.findViewById<TextView>(R.id.text_titulo_nota)
         val textConteudo = itemView.findViewById<TextView>(R.id.text_conteudo_nota)
         val buttonNota = itemView.findViewById<CardView>(R.id.button_nota)
+        val layout = itemView.findViewById<View>(R.id.layout_nota_dentro)
 
         // Atribui valores
         textTitulo.text = nota.titulo
-        textConteudo.text = nota.texto
+        textConteudo.text = nota.conteudo
 
         // Atribui eventos
         buttonNota.setOnClickListener {
-            listener.onClick(nota.id)
+            listListener.onClick(nota.idNota, nota.titulo, nota.conteudo, nota.cor)
         }
-
-        // Atribui eventos
-        buttonNota.setOnLongClickListener {
-            AlertDialog.Builder(itemView.context)
-                .setTitle("Remoção de nota")
-                .setMessage("Deseja mesmo remover a nota?")
-                .setPositiveButton("Remover") { dialog, which ->
-                    listener.onDelete(nota.id)
+        try {
+            layout.setBackgroundColor(Color.parseColor(nota.cor))
+            println(nota.cor)
+            when (nota.cor) {
+                CoresNotasConstants.AMARELO -> {
+                    buttonNota.setCardBackgroundColor(Color.parseColor(CoresNotasConstants.AMARELO_ESCURO))
                 }
-                .setNeutralButton("Cancelar", null)
-                .show()
-
-            true
+                CoresNotasConstants.AZUL -> {
+                    buttonNota.setCardBackgroundColor(Color.parseColor(CoresNotasConstants.AZUL_ESCURO))
+                }
+                CoresNotasConstants.VERMELHO -> {
+                    buttonNota.setCardBackgroundColor(Color.parseColor(CoresNotasConstants.VERMELHO_ESCURO))
+                }
+                else -> {
+                    buttonNota.setCardBackgroundColor(Color.parseColor(CoresNotasConstants.VERDE_ESCURO))
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-
     }
+
 }

@@ -1,31 +1,46 @@
 package com.example.minerva.ui.activities
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.example.minerva.R
 import com.example.minerva.ui.fragments.AnotacaoFragment
 import com.example.minerva.ui.fragments.ConteudoFragment
 import com.example.minerva.ui.fragments.UsuarioFragment
+import com.example.minerva.util.UsuarioFirebase
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import de.hdodenhof.circleimageview.CircleImageView
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.URL
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment.CreateConteudoLiestener, AnotacaoFragment.CreateAnotacaoListener , UsuarioFragment.CreateUsuarioListener{
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+    ConteudoFragment.CreateConteudoLiestener, AnotacaoFragment.CreateAnotacaoListener,
+    UsuarioFragment.CreateUsuarioListener {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mUser: FirebaseUser
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var mAuthStateListener: FirebaseAuth.AuthStateListener
     private lateinit var mNomeUsuario: String
+    private var bitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +48,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
             supportActionBar!!.hide()
         }
 
-
         setContentView(R.layout.activity_main)
+
+        loadImage(Handler())
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -54,11 +70,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
 
         mAuth = FirebaseAuth.getInstance()
 
-      //  button_sair_usuario.setOnClickListener(this)
+        //  button_sair_usuario.setOnClickListener(this)
         mNomeUsuario = ("Olá, " + mAuth.currentUser!!.displayName + "!")
-      //  text_teste.text = mNomeUsuario
+        //  text_teste.text = mNomeUsuario
 
-       // button_sair_usuario.setOnClickListener(this)
+        // button_sair_usuario.setOnClickListener(this)
 
         estadoAutenticacao()
         servicosGoogle()
@@ -70,7 +86,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
     }
 
     //--------------------------------METODOS DOS CLIKCS----------------------------------//
-    private fun deslogar(){
+    private fun deslogar() {
         FirebaseAuth.getInstance().signOut()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -99,10 +115,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
 
     private fun estadoAutenticacao() {
         mAuthStateListener = FirebaseAuth.AuthStateListener {
-            if(it.currentUser != null){
+            if (it.currentUser != null) {
                 mUser = it.currentUser!!
 
-            }else{
+            } else {
 
             }
 
@@ -124,7 +140,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
     }
 
     override fun onCreateConteudo(codigo: Int) {
-        when(codigo){
+        when (codigo) {
             1 -> {
                 startActivity(Intent(baseContext, CienciasHumanasActivity::class.java))
             }
@@ -140,16 +156,66 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ConteudoFragment
         }
     }
 
-    override fun onCreateAnotacao() {
-        TODO("Not yet implemented")
+    override fun onListenerUsuario(codigo: Int) {
+        when (codigo) {
+            1 -> {
+                openKeyBoard()
+            }
+            2 -> {
+                closeKeyBoard()
+            }
+            4 -> {
+                deslogar()
+            }
+        }
     }
 
-    override fun onCreateUsuario(codigo :Int) {
-       when(codigo){
-           4 -> {
-               deslogar()
-           }
-       }
+    override fun passarImagem(): Bitmap? {
+        return bitmap
     }
 
+    override fun atualizarImagem(bitmap: Bitmap) {
+        this.bitmap = bitmap
+    }
+
+
+    private fun openKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
+
+    override fun onCreateAnotacao(codigo: Int) {}
+
+    private fun loadImage(handler: Handler) {
+        var img: Bitmap? = null
+
+        Thread {
+            kotlin.run {
+                try {
+                    val url = URL(FirebaseAuth.getInstance().currentUser!!.photoUrl.toString())
+                    val conexao: HttpURLConnection = url.openConnection() as HttpURLConnection
+                    val input = conexao.inputStream
+                    img = BitmapFactory.decodeStream(input)
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+                handler.post {
+                    bitmap = img
+                }
+            }
+        }.start()
+
+    }
 }

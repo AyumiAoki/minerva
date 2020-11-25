@@ -4,23 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:fillViewport="true"
     tools:context=".ui.activities.NotaActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_nota"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#33AEC4">
+
+        <TextView
+            android:id="@+id/text_titulo_nota"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:paddingStart="16dp"
+            android:paddingTop="32dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:text="TextView"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_conteudo_nota"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
-            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:text="TextView"
+            android:textColor="@color/colorWhite"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/text_titulo_nota" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

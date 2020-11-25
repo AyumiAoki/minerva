@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
-import com.example.minerva.util.Util
 import com.example.minerva.service.constants.ErrorsFirebase
+import com.example.minerva.util.Util
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -18,11 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import kotlinx.android.synthetic.main.activity_cadastro.*
-import kotlinx.android.synthetic.main.activity_cadastro.button_cadastrar
-import kotlinx.android.synthetic.main.activity_cadastro.button_login
-import kotlinx.android.synthetic.main.activity_cadastro.edit_email
-import kotlinx.android.synthetic.main.activity_cadastro.edit_senha
-import kotlinx.android.synthetic.main.activity_cadastro.layout_senha
 
 
 class CadastroActivity : AppCompatActivity(), View.OnClickListener{
@@ -218,7 +213,9 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                     finish()
                 }else{
                     Toast.makeText(
@@ -245,7 +242,9 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
                     finish()
                 } else {
                     Toast.makeText(

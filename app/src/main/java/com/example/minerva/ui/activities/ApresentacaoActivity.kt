@@ -15,7 +15,6 @@ import com.example.minerva.R
 import com.example.minerva.util.Dicas
 import kotlinx.android.synthetic.main.activity_apresentacao.*
 import kotlinx.android.synthetic.main.dica.view.*
-import java.lang.Math.abs
 
 class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -34,29 +33,37 @@ class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
         val dicas = arrayListOf(
             Dicas(
                 "Minerva",
-                "Revise os principais assuntos das Áreas de Conhecimento: Ciências Humanas " +
-                        "e suas Tecnologias Ciências da Natureza e suas Tecnologias Linguagens, " +
-                        "Códigos e suas Tecnologias Matemática e suas Tecnologias",
+                """Revise os principais assuntos das
+4 Áreas de Conhecimento:
+
+Ciências Humanas
+Ciências da Natureza
+Linguagens e Códigos
+Matemática""",
                 R.drawable.img_apresentacao2,
-                R.color.colorWhite
+                R.color.colorPrimary
             ),
             Dicas(
-                "Exercícios",
-                "Exercite o que aprendeu após a revisão de cada conteúdo respondendo questões.",
+                "Exercite",
+                """Exercite o que aprendeu após 
+a revisão de cada conteúdo 
+respondendo exercícios.""",
                 R.drawable.img_apresentacao3,
-                R.color.colorWhite
+                R.color.colorPrimary
             ),
             Dicas(
                 "Agenda",
-                "Anote o que for preciso e consulte quando quiser.",
+                """Defina em sua agenda horários 
+de estudos e mantenha o foco.""",
                 R.drawable.img_apresentacao4,
-                R.color.colorWhite
+                R.color.colorPrimary
             ),
             Dicas(
                 "Anotações",
-                "Defina em sua agenda horários de estudos e mantenha o foco.",
+                """Anote o que for preciso 
+e consulte quando quiser.""",
                 R.drawable.img_apresentacao5,
-                R.color.colorWhite
+                R.color.colorPrimary
             )
         )
 
@@ -85,7 +92,6 @@ class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
-        println(button_proximo.text.toString())
         button_proximo.setOnClickListener(this)
         button_pular.setOnClickListener(this)
     }
@@ -144,16 +150,16 @@ class ApresentacaoActivity : AppCompatActivity(), View.OnClickListener {
     fun estadoBotoes(position: Int) {
         when (position) {
             0 -> {
-                button_pular.text = "Pular"
-                button_proximo.text = "—ᐳ"
+                text_button_pular.text = "Pular"
+                text_button_proximo.text = "—ᐳ"
             }
-            3 -> {
-                button_proximo.text = "Começar"
+            /*3 -> {
+                text_button_proximo.text = "Começar"
                 button_pular.text = "ᐸ—"
-            }
+            }*/
             else -> {
-                button_pular.text = "ᐸ—"
-                button_proximo.text = "—ᐳ"
+                text_button_pular.text = "ᐸ—"
+                text_button_proximo.text = "—ᐳ"
             }
         }
     }

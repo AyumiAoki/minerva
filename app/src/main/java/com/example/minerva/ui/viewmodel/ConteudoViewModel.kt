@@ -14,7 +14,7 @@ class ConteudoViewModel : ViewModel() {
        /* var nomes = mAuth.currentUser!!.displayName?.split(" ")
         value = "Olá, " + nomes!!.get(0) + "!"*/
 
-        value = "Olá, " + mAuth.currentUser!!.displayName + "!"
+        value = "Olá, " + (mAuth.currentUser?.displayName ?: "visitante") + "!"
     }
     val text: LiveData<String> = _text
 }
