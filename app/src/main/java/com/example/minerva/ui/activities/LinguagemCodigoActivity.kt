@@ -12,17 +12,17 @@ class LinguagemCodigoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (supportActionBar != null) {
-            supportActionBar!!.title = "Linguagens e Códigos"
+            supportActionBar!!.elevation = 0f
             supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
             supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+
+            supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_linguagem))
+            supportActionBar!!.title = "Linguagens e Códigos"
         }
         setContentView(R.layout.activity_linguagem_codigo)
-        button_portugues.setOnClickListener(this)
-        button_artes.setOnClickListener(this)
-        button_comunicacao.setOnClickListener(this)
-        button_educacao_fisica.setOnClickListener(this)
-        button_espanhol.setOnClickListener(this)
+
         button_ingles.setOnClickListener(this)
+        button_conteudo_linguagem.setOnClickListener(this)
         button_literatura.setOnClickListener(this)
     }
 

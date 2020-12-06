@@ -61,6 +61,7 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
     private fun loginGoogle() {
 
         val account = GoogleSignIn.getLastSignedInAccount(this)
+        progressBar_introducao.visibility = View.VISIBLE
 
         if (account == null) {
             val intent = mGoogleSignInClient.signInIntent
@@ -68,6 +69,7 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             //Já existe algue conectado pelo google
             // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
+            progressBar_introducao.visibility = View.INVISIBLE
             Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG)
                 .show()
 
@@ -76,26 +78,26 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun entrarAnonimamente(){
+    private fun entrarAnonimamente() {
         mAuth.signInAnonymously()
-            .addOnCompleteListener(this,
-                OnCompleteListener<AuthResult?> { task ->
-                    if (task.isSuccessful) {
-                        finish()
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Error ao entrar anonimamente",
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
-                    }
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    finish()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Error ao entrar anonimamente",
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
 
-                    // ...
-                })
+                // ...
+            }
     }
     //---------------------------------- SERVIÇOS ------------------------------------------//
 
@@ -112,6 +114,7 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
+                progressBar_introducao.visibility = View.INVISIBLE
                 if (task.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -120,10 +123,10 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Error ao logar com o Google",
+                        "Error ao logar com o Google " + task.exception.toString(),
                         Toast.LENGTH_LONG
-                    )
-                        .show()
+                    ).show()
+                    println(task.exception.toString())
                 }
             }
     }
@@ -143,6 +146,7 @@ class IntroducaoActivity : AppCompatActivity(), View.OnClickListener {
 
             } catch (e: ApiException) {
 
+                progressBar_introducao.visibility = View.INVISIBLE
                 Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
                     .show()
             }

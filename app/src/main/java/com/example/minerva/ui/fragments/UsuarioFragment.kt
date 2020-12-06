@@ -31,6 +31,7 @@ class UsuarioFragment : Fragment() {
     private lateinit var usuarioViewModel: UsuarioViewModel
     private lateinit var mListener: CreateUsuarioListener
     private lateinit var imagem: ImageView
+    private lateinit var imagemEditarFoto: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,12 +47,13 @@ class UsuarioFragment : Fragment() {
         val buttonMudarNome = root.findViewById<View>(R.id.button_mudar_nome)
         val buttonSairMudarNome = root.findViewById<View>(R.id.button_sair_mudar_nome)
         val buttonEditarFoto = root.findViewById<View>(R.id.button_editar_foto)
-
+        imagemEditarFoto = root.findViewById<ImageView>(R.id.image_adicionar_foto)
 
         textViewNome.text = UsuarioFirebase.usuarioAtual?.displayName ?: "Visitante"
         imagem = root.findViewById(R.id.image_usuario)
         if (mListener.passarImagem() != null) {
             imagem.setImageBitmap(mListener.passarImagem())
+            imagemEditarFoto.setImageDrawable(requireContext().getDrawable(R.drawable.ic_editar))
         }
         buttonEditarFoto.setOnClickListener {
             val i = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -129,6 +131,7 @@ class UsuarioFragment : Fragment() {
             )
             imagem.setImageBitmap(image)
             mListener.atualizarImagem(image)
+            imagemEditarFoto.setImageDrawable(requireContext().getDrawable(R.drawable.ic_editar))
             //Recuperar dados da imagem para o firebase
             val baos = ByteArrayOutputStream()
             image.compress(Bitmap.CompressFormat.JPEG, 70, baos)

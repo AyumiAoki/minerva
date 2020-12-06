@@ -41,7 +41,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_atividade"
+                    android:src="@drawable/ic_atividades"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

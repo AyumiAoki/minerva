@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_anotacao"
-        android:name="com.example.minerva.ui.fragments.AnotacaoFragment"
+        android:name="com.example.minerva.ui.fragments.NotaFragment"
         android:label="Anotacao"
         tools:layout="@layout/fragment_anotacao" />
 

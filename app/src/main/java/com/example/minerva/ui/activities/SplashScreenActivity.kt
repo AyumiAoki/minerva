@@ -20,7 +20,6 @@ class SplashScreenActivity : AppCompatActivity(), Runnable {
 
         auth = FirebaseAuth.getInstance()
 
-
         handler = Handler()
         thread = Thread(this)
         thread.start()

@@ -13,9 +13,12 @@ class CienciasNaturezaActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         if (supportActionBar != null) {
-            supportActionBar!!.title = "Ciências da Natureza"
+            supportActionBar!!.elevation = 0f
             supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
             supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+
+            supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_ciencias_natureza))
+            supportActionBar!!.title = "Ciências da Natureza"
         }
 
         setContentView(R.layout.activity_ciencias_natureza)

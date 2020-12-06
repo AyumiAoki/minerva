@@ -154,12 +154,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@color/colorAzulFraco"
                 android:orientation="horizontal">
 
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/button_ciencias_humanas"
-                    android:layout_width="175dp"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
@@ -168,6 +169,7 @@
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
                     tools:targetApi="lollipop">
 
                     <LinearLayout
@@ -202,7 +204,7 @@
                                 android:layout_marginEnd="4dp"
                                 android:layout_marginRight="4dp"
                                 android:contentDescription="Imagem ciçencias humana"
-                                android:src="@drawable/ic_anotacao"
+                                android:src="@drawable/icon_humanas"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -228,7 +230,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/button_ciencias_natureza"
-                    android:layout_width="175dp"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
@@ -237,6 +239,7 @@
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
                     tools:targetApi="lollipop">
 
                     <LinearLayout
@@ -272,7 +275,7 @@
                                 android:layout_marginEnd="4dp"
                                 android:layout_marginRight="4dp"
                                 android:contentDescription="Imagem ciências da natureza"
-                                android:src="@drawable/ic_anotacao"
+                                android:src="@drawable/icon_natureza"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -298,7 +301,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/button_lingugens"
-                    android:layout_width="wrap_content"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
@@ -306,10 +309,11 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="8dp">
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp">
 
                     <LinearLayout
-                        android:layout_width="175dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -341,7 +345,7 @@
                                 android:layout_marginEnd="4dp"
                                 android:layout_marginRight="4dp"
                                 android:contentDescription="Imagem Linguagens e códigos"
-                                android:src="@drawable/ic_anotacao"
+                                android:src="@drawable/icon_abc"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -367,13 +371,14 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/button_matematica"
-                    android:layout_width="175dp"
+                    android:layout_width="185dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/amarelo"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
                     tools:targetApi="lollipop">
 
                     <LinearLayout
@@ -411,7 +416,7 @@
                                 android:layout_marginEnd="4dp"
                                 android:layout_marginRight="4dp"
                                 android:contentDescription="Imagem matemática"
-                                android:src="@drawable/ic_anotacao"
+                                android:src="@drawable/icon_matematica"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"

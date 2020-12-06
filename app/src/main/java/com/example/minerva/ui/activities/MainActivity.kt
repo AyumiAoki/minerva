@@ -8,33 +8,30 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.bumptech.glide.Glide
 import com.example.minerva.R
-import com.example.minerva.ui.fragments.AnotacaoFragment
+import com.example.minerva.ui.fragments.AgendaFragment
+import com.example.minerva.ui.fragments.NotaFragment
 import com.example.minerva.ui.fragments.ConteudoFragment
 import com.example.minerva.ui.fragments.UsuarioFragment
-import com.example.minerva.util.UsuarioFirebase
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import de.hdodenhof.circleimageview.CircleImageView
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener,
-    ConteudoFragment.CreateConteudoLiestener, AnotacaoFragment.CreateAnotacaoListener,
-    UsuarioFragment.CreateUsuarioListener {
+    ConteudoFragment.CreateConteudoLiestener, NotaFragment.CreateAnotacaoListener,
+    UsuarioFragment.CreateUsuarioListener, AgendaFragment.AgendaListener {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mUser: FirebaseUser
     private lateinit var mGoogleSignInClient: GoogleSignInClient
@@ -151,7 +148,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
                 startActivity(Intent(baseContext, LinguagemCodigoActivity::class.java))
             }
             4 -> {
-                startActivity(Intent(baseContext, ConteudoActivity::class.java))
+                startActivity(Intent(baseContext, MatematicaActivity::class.java))
             }
         }
     }
@@ -216,6 +213,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
                 }
             }
         }.start()
+
+    }
+
+    override fun onAnotacao(codigo: Int) {
+        TODO("Not yet implemented")
 
     }
 }

@@ -45,12 +45,18 @@
 
         <Button
             android:id="@+id/button_salvar_nota"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
             android:layout_margin="16dp"
-            android:text="Salvar Nota"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto"
+            android:orientation="horizontal"
+            android:text="Salvar nota"
+            android:textColor="@drawable/custom_text_buttom"
+            android:textSize="@dimen/fonte_padrao_media"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

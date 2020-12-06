@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.minerva.R
-import kotlinx.android.synthetic.main.activity_consteudo_geografia.*
+import kotlinx.android.synthetic.main.activity_conteudo_geografia.*
 
 class ConteudoGeografiaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class ConteudoGeografiaActivity : AppCompatActivity() {
         }
 
 
-        setContentView(R.layout.activity_consteudo_geografia)
+        setContentView(R.layout.activity_conteudo_geografia)
         button_industrializacao.setOnClickListener{
             startActivity(Intent(baseContext, IndustrializacaoActivity::class.java))
         }

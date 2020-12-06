@@ -4,44 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         tools:context=".ui.activities.RecuperarSenhaActivity">
 
         <TextView
             android:id="@+id/text_titulo_recuperar_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="@dimen/padrao_margin"
-            android:layout_marginStart="@dimen/padrao_margin"
-            android:text="Esqueceu a senha?"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:fontFamily="@font/open_sans"
+            android:text="Recuperar senha"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_mensagem_recuperar_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="14sp"
+            android:layout_marginStart="@dimen/padrao_margin"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/padrao_margin"
+            android:fontFamily="@font/source_sans_pro"
             android:gravity="start"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="@dimen/padrao_margin"
-            android:layout_marginStart="@dimen/padrao_margin"
             android:text="Insira o email que você usou quando se cadastrou no Minerva, e nós enviaremos uma email para a recuperação de sua senha."
-            app:layout_constraintTop_toBottomOf="@id/text_titulo_recuperar_senha"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/text_titulo_recuperar_senha" />
 
         <TextView
             android:id="@+id/text_email_recuperar_senha"
@@ -52,8 +55,8 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/source_sans_pro"
             android:text="@string/email"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/fonte_padrao_media"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_mensagem_recuperar_senha" />
 
@@ -64,14 +67,14 @@
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
+            android:autofillHints="Email"
             android:background="@drawable/custom_edit_text"
             android:hint="nome@example.com"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/fonte_padrao_pequena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_email_recuperar_senha"
-            android:autofillHints="Email" />
+            app:layout_constraintTop_toBottomOf="@+id/text_email_recuperar_senha" />
 
         <Button
             android:id="@+id/button_recuperar_senha"
@@ -79,16 +82,18 @@
             android:layout_height="42dp"
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginEnd="@dimen/padrao_margin"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/custom_button_google"
             android:elevation="2dp"
-            android:textSize="@dimen/fonte_padrao_pequena"
             android:fontFamily="@font/roboto"
-            android:text="Enviar Email de recuperação de senha"
-            android:textColor="@drawable/custom_text_buttom"
+            android:text="Confirmar"
+            android:textColor="@drawable/custom_view_text_google"
+            android:textSize="@dimen/fonte_padrao_pequena"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_email_recuperar_senha"
             tools:targetApi="lollipop" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

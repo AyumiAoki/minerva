@@ -14,9 +14,13 @@ class CienciasHumanasActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         if (supportActionBar != null) {
-            supportActionBar!!.title = "Ciências Humanas"
+
+            supportActionBar!!.elevation = 0f
+
             supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
             supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+            supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_ciencias_humanas))
+            supportActionBar!!.title = "Ciências Humanas"
         }
 
 
@@ -38,7 +42,7 @@ class CienciasHumanasActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 ) //O efeito ao ser pressionado do botão (no caso abre a activity)*/
                 finish()
-               /* finishAffinity() //Método para matar a activity e não deixa-lá indexada na pilhagem*/
+                /* finishAffinity() //Método para matar a activity e não deixa-lá indexada na pilhagem*/
             }
             else -> {
             }

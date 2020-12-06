@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.minerva">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.ConteudoActivity"></activity>
+        <activity android:name=".ui.activities.TermoUsoActivity"></activity>
+        <activity android:name=".ui.activities.MatematicaActivity" />
+        <activity android:name=".ui.activities.LembreteActivity" />
+        <activity android:name=".ui.activities.CadastroAgendaActivity" />
+        <activity android:name=".ui.activities.ConteudoActivity"/>
         <activity android:name=".ui.activities.LinguagemCodigoActivity" />
         <activity android:name=".ui.activities.CienciasNaturezaActivity" />
         <activity android:name=".ui.activities.NotaActivity" />
@@ -35,6 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".util.MyNotificationSystem" />
 
         <meta-data
             android:name="preloaded_fonts"

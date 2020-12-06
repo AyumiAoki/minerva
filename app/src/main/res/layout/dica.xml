@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="#0CD1E8">
 
+
     <ImageView
         android:id="@+id/logo_dicas"
         android:layout_width="0dp"

@@ -11,7 +11,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/testee"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+
 
         <ImageView
             android:id="@+id/imagem_logo"
@@ -57,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="4dp"
+                android:contentDescription="TODO"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:src="@drawable/ic_logo_google"
@@ -65,8 +70,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@drawable/custom_view_text_google"
-                android:contentDescription="TODO" />
+                app:tint="@drawable/custom_view_text_google" />
 
             <TextView
                 android:id="@+id/text_cadastrar"
@@ -100,11 +104,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@id/text_ou"
-                android:background="@color/colorPrimary"
                 android:layout_marginStart="8dp"
-                android:layout_toEndOf="@id/text_ou" />
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@id/text_ou"
+                android:layout_toRightOf="@id/text_ou"
+                android:background="@color/colorPrimary" />
 
             <TextView
                 android:id="@+id/text_ou"
@@ -122,9 +126,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:layout_toStartOf="@id/text_ou"
                 android:layout_toLeftOf="@id/text_ou"
-                android:background="@color/colorPrimary"
-                android:layout_toStartOf="@id/text_ou" />
+                android:background="@color/colorPrimary" />
 
         </RelativeLayout>
 
@@ -132,8 +136,8 @@
             android:id="@+id/linear_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padrao_margin2"
             android:layout_margin="@dimen/padrao_margin"
+            android:layout_marginTop="@dimen/padrao_margin2"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -181,20 +185,20 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1.5"
+                android:autofillHints="Nome"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/fonte_padrao_pequena"
-                android:autofillHints="Nome" />
+                android:textSize="@dimen/fonte_padrao_pequena" />
 
             <EditText
                 android:id="@+id/edit_sobrenome"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_weight="1"
+                android:autofillHints="sobrenome"
                 android:background="@drawable/custom_edit_text"
                 android:inputType="textPersonName"
-                android:textSize="@dimen/fonte_padrao_pequena"
-                android:autofillHints="sobrenome" />
+                android:textSize="@dimen/fonte_padrao_pequena" />
 
         </LinearLayout>
 
@@ -219,14 +223,14 @@
             android:layout_marginStart="@dimen/padrao_margin"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
+            android:autofillHints="email"
             android:background="@drawable/custom_edit_text"
             android:hint="nome@example.com"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/fonte_padrao_pequena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_email"
-            android:autofillHints="email" />
+            app:layout_constraintTop_toBottomOf="@+id/text_email" />
 
         <TextView
             android:id="@+id/text_senha"
@@ -246,27 +250,27 @@
             android:id="@+id/layout_senha"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="4dp"
             android:layout_marginStart="@dimen/padrao_margin"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/padrao_margin"
             app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_senha"
-            app:hintEnabled="false"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/colorPrimary">
 
             <EditText
                 android:id="@+id/edit_senha"
-                android:hint="+6 caracteres"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
+                android:autofillHints="senha"
                 android:background="@drawable/custom_edit_text"
+                android:hint="+6 caracteres"
                 android:inputType="textPassword"
                 android:textSize="@dimen/fonte_padrao_pequena"
-                app:passwordToggleEnabled="true"
-                android:autofillHints="senha" />
+                app:passwordToggleEnabled="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -316,7 +320,6 @@
 
         <Button
             android:id="@+id/button_cadastrar"
-
             android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginStart="@dimen/padrao_margin"
@@ -339,9 +342,9 @@
             android:id="@+id/text_mensagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/open_sans"
-            android:layout_marginTop="16dp"
             android:text="Já tem uma conta? "
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/fonte_padrao_pequena"
@@ -362,6 +365,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/text_mensagem"
             app:layout_constraintTop_toTopOf="@id/text_mensagem" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_cadastro"
+            android:visibility="invisible"
+
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

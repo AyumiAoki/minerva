@@ -132,7 +132,7 @@ class NotaActivity : AppCompatActivity() {
                 AlertDialog.Builder(this)
                     .setTitle("Remoção de nota")
                     .setMessage("Deseja mesmo remover a nota?")
-                    .setPositiveButton("Remover") { dialog, which ->
+                    .setPositiveButton("Remover") { _, _ ->
                         excluirNota()
                     }
                     .setNeutralButton("Cancelar", null)

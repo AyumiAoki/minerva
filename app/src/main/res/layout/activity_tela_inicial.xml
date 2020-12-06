@@ -70,7 +70,7 @@
             android:elevation="8dp"
             android:fontFamily="@font/source_sans_pro"
             android:text="@string/iniciar"
-            android:textColor="@drawable/custom_view_text_google"
+            android:textColor="@drawable/custom_text_introducao"
             android:textAllCaps="false"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

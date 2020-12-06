@@ -1,10 +1,14 @@
 package com.example.minerva.ui.activities
 
+import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
@@ -32,6 +36,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
             supportActionBar!!.hide()
         }
 
+
         mAuth = FirebaseAuth.getInstance()
 
         button_login.setOnClickListener(this)
@@ -39,6 +44,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
         button_cadastrar.setOnClickListener(this)
         button_cadastro_google.setOnClickListener(this)
         checkbox_termo.setOnClickListener(this)
+        progressBar_cadastro.visibility = View.INVISIBLE
 
         edit_senha.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {
@@ -51,6 +57,12 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
         })
 
         servicosGoogle()
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        closeKeyBoard()
     }
 
     override fun onClick(view: View) {
@@ -60,7 +72,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
             }
 
             R.id.button_termo_uso -> {
-                Toast.makeText(applicationContext, "Teste termo de uso", Toast.LENGTH_SHORT).show()
+                termosUso()
             }
 
             R.id.button_cadastrar -> {
@@ -78,6 +90,10 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
     }
 
+    private fun termosUso() {
+        startActivity(Intent(applicationContext, TermoUsoActivity::class.java))
+    }
+
     //--------------------------------METODOS DOS CLIKCS----------------------------------//
     private fun login(){
         startActivity(Intent(applicationContext, LoginActivity::class.java))
@@ -91,10 +107,12 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
         if (validarDados()) {
 
+            progressBar_cadastro.visibility = View.VISIBLE
             mAuth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     salvarNome(nome)
                 } else {
+                    progressBar_cadastro.visibility = View.INVISIBLE
                     validacaoFirebase(it.exception.toString())
                 }
             }
@@ -105,13 +123,14 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
     private fun cadastroGoogle(){
         val account = GoogleSignIn.getLastSignedInAccount(this)
-
+        progressBar_cadastro.visibility = View.VISIBLE
         if(account == null){
             val intent = mGoogleSignInClient.signInIntent
             startActivityForResult(intent, 555)
         }else{
             //Já existe algue conectado pelo google
             // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
+            progressBar_cadastro.visibility = View.INVISIBLE
             Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG)
                 .show()
 
@@ -212,6 +231,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
         user?.updateProfile(profileUpdates)
             ?.addOnCompleteListener { task ->
+                progressBar_cadastro.visibility = View.INVISIBLE
                 if (task.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -241,6 +261,7 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
+                progressBar_cadastro.visibility = View.INVISIBLE
                 if (task.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -271,10 +292,19 @@ class CadastroActivity : AppCompatActivity(), View.OnClickListener{
 
             } catch (e: ApiException) {
 
+                progressBar_cadastro.visibility = View.INVISIBLE
                 Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
                     .show()
             }
 
+        }
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 

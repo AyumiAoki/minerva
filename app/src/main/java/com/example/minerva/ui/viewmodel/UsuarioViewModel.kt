@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
 
 class UsuarioViewModel : ViewModel() {
-    private lateinit var mAuth: FirebaseAuth
+    private var mAuth: FirebaseAuth
 
     private val _text = MutableLiveData<String>().apply {
         mAuth = FirebaseAuth.getInstance()

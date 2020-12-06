@@ -4,6 +4,9 @@
     <color name="colorSecondary">#0DFFD5</color>
     <color name="test">#0CD1E8</color>
     <color name="colorAzulFraco">#ebfcff</color>
+    <color name="colorAmareloFraco">#FFFDE8</color>
+    <color name="colorVermelhoFraco">#FFEDE8</color>
+    <color name="colorVerdeFraco">#E8FFEA</color>
     <color name='colorWhite'>#fff</color>
     <color name="colorBlack">#000</color>
     <color name="campoFoco">#E8FCFF</color>

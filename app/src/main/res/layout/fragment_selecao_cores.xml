@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
+            <ImageView
                 android:id="@+id/azul"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -36,9 +36,61 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="360dp" />
+                android:src="@drawable/ic_circle"
+                android:tint="#33AEC4"/>
 
-            <androidx.cardview.widget.CardView
+            <!--<androidx.cardview.widget.CardView
+                android:id="@+id/azul"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#33AEC4"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="360dp" />-->
+
+            <ImageView
+                android:id="@+id/verde"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#33C47B"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_circle"
+                android:tint="#33C47B"/>
+
+            <ImageView
+                android:id="@+id/vermelho"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E46C49"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_circle"
+                android:tint="#E46C49"/>
+
+            <ImageView
+                android:id="@+id/amarelo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#D6C251"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_circle"
+                android:tint="#D6C251"/>
+
+           <!-- <androidx.cardview.widget.CardView
                 android:id="@+id/verde"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -72,7 +124,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="360dp" />
+                app:cardCornerRadius="360dp" />-->
 
             <View
                 android:layout_width="0dp"

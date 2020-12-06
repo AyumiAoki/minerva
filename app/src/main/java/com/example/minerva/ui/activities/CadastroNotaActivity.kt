@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
 import com.example.minerva.service.constants.CoresNotasConstants
@@ -19,6 +20,7 @@ class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
     SelecaoCoresFragment.SelecaoCores {
 
     private var mCor: String = "#33AEC4"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -66,8 +68,10 @@ class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
     override fun onClick(v: View) {
         val id = v.id
         if (id == R.id.button_salvar_nota) {
-            salvarNota()
-            finish()
+            if(validarCampos()){
+                salvarNota()
+                finish()
+            }
         }
     }
 
@@ -135,5 +139,20 @@ class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
     private fun chamarMyDialog() {
         val myFragment = SelecaoCoresFragment()
         myFragment.show(supportFragmentManager, "my_fragment")
+    }
+
+    private fun validarCampos(): Boolean{
+        val titulo = edit_titulo_nota.text.toString()
+        val conteudo = edit_conteudo_nota.text.toString()
+
+        if(titulo.isEmpty()){
+            Toast.makeText(this, "Título não pode ser vazio", Toast.LENGTH_SHORT).show()
+            return false
+        }else if(conteudo.isEmpty()){
+            Toast.makeText(this, "Conteúdo não pode ser vazio", Toast.LENGTH_SHORT).show()
+            return false
+        }else{
+            return true
+        }
     }
 }

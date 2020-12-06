@@ -1,10 +1,12 @@
 package com.example.minerva.ui.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.minerva.R
@@ -53,8 +55,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
-
         servicosGoogle()
+        closeKeyBoard()
+        progressBar_login.visibility = View.INVISIBLE
     }
 
     override fun onClick(view: View) {
@@ -93,8 +96,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         val email = edit_email.text.toString()
         val senha = edit_senha.text.toString()
 
+
         if (validarDados()) {
+            progressBar_login.visibility = View.VISIBLE
             mAuth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(this) {
+                progressBar_login.visibility = View.INVISIBLE
                 if (it.isSuccessful) {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -109,6 +115,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun loginGoogle(){
         val account = GoogleSignIn.getLastSignedInAccount(this)
+        progressBar_login.visibility = View.VISIBLE
 
         if(account == null){
             val intent = mGoogleSignInClient.signInIntent
@@ -116,6 +123,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }else{
             //Já existe algue conectado pelo google
             // startActivity(Intent(applicationContext, TelaInicialActivity::class.java))
+            progressBar_login.visibility = View.INVISIBLE
             Toast.makeText(applicationContext, "Já logado com o Google", Toast.LENGTH_LONG).show()
 
             mGoogleSignInClient.signOut()
@@ -228,8 +236,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val account = task.getResult(ApiException::class.java)
                 adicionarContaGoogleFirebase(account!!.idToken ?: "nice")
             } catch (e: ApiException) {
+                progressBar_login.visibility = View.INVISIBLE
                 Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG).show()
             }
+        }
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 }

@@ -2,6 +2,7 @@ package com.example.minerva.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.example.minerva.R
@@ -19,7 +20,12 @@ class RecuperarSenhaActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_recuperar_senha)
 
         if (supportActionBar != null) {
-            supportActionBar!!.hide()
+
+            supportActionBar!!.elevation = 0f
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
+            supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+            supportActionBar!!.title = ""
         }
 
         auth = FirebaseAuth.getInstance()
@@ -93,5 +99,16 @@ class RecuperarSenhaActivity : AppCompatActivity(), View.OnClickListener {
                 .show()
         }
         return check
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+            else -> {
+            }
+        }
+        return true
     }
 }
