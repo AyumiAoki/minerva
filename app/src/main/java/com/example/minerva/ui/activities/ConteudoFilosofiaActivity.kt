@@ -17,15 +17,15 @@ import kotlinx.android.synthetic.main.activity_auguste_comte.*
 import kotlinx.android.synthetic.main.activity_conteudo_filosofia.*
 import kotlinx.android.synthetic.main.activity_conteudo_sociologia.*
 
-class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
+class ConteudoFilosofiaActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val nomeMateria = "Geografia"
+        val nomeMateria = "Filosofia"
 
         val reference = FirebaseDatabase.getInstance().reference
-        val m : DatabaseReference = reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid).child("materias").child("Geografia")
+        val m : DatabaseReference = reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid).child("materias").child("Filosofia")
         var qntdRevisado = ""
         var subtitulo = ""
 
@@ -47,7 +47,7 @@ class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
-        setContentView(R.layout.activity_conteudo_geografia)
+        setContentView(R.layout.activity_conteudo_filosofia)
 
         button_1.setOnClickListener(this)
         button_2.setOnClickListener(this)

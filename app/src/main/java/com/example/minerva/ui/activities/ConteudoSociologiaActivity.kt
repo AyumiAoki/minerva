@@ -14,18 +14,17 @@ import com.example.minerva.ui.activities.conteudos.WeberActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_auguste_comte.*
-import kotlinx.android.synthetic.main.activity_conteudo_filosofia.*
 import kotlinx.android.synthetic.main.activity_conteudo_sociologia.*
 
-class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
+class ConteudoSociologiaActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val nomeMateria = "Geografia"
+        val nomeMateria = "Sociologia"
 
         val reference = FirebaseDatabase.getInstance().reference
-        val m : DatabaseReference = reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid).child("materias").child("Geografia")
+        val m : DatabaseReference = reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid).child("materias").child("Sociologia")
         var qntdRevisado = ""
         var subtitulo = ""
 
@@ -47,18 +46,18 @@ class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
-        setContentView(R.layout.activity_conteudo_geografia)
+        setContentView(R.layout.activity_conteudo_sociologia)
 
-        button_1.setOnClickListener(this)
-        button_2.setOnClickListener(this)
-        button_3.setOnClickListener(this)
-        button_4.setOnClickListener(this)
-        button_5.setOnClickListener(this)
-        button_6.setOnClickListener(this)
-        button_7.setOnClickListener(this)
-        button_8.setOnClickListener(this)
-        button_9.setOnClickListener(this)
-        button_10.setOnClickListener(this)
+        button_auguste.setOnClickListener(this)
+        button_weber.setOnClickListener(this)
+        button_marx.setOnClickListener(this)
+        button_emile.setOnClickListener(this)
+        button_socio.setOnClickListener(this)
+        button_cultura.setOnClickListener(this)
+        button_mobilidade.setOnClickListener(this)
+        button_genero.setOnClickListener(this)
+        button_imigracao.setOnClickListener(this)
+        button_industria.setOnClickListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar
@@ -73,34 +72,34 @@ class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.button_1 -> {
+            R.id.button_auguste -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_2 -> {
+            R.id.button_weber -> {
                 startActivity(Intent(baseContext, WeberActivity::class.java))
             }
-            R.id.button_3 -> {
+            R.id.button_marx -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_4 -> {
+            R.id.button_emile -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_5 -> {
+            R.id.button_socio -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_6 -> {
+            R.id.button_cultura -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_7 -> {
+            R.id.button_mobilidade -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_8 -> {
+            R.id.button_genero -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_9 -> {
+            R.id.button_imigracao -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
-            R.id.button_10 -> {
+            R.id.button_industria -> {
                 startActivity(Intent(baseContext, AugusteComteActivity::class.java))
             }
             else -> {

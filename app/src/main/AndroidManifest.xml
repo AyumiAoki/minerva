@@ -6,16 +6,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_tela_inicial"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_tela_inicial"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.TermoUsoActivity"></activity>
+        <activity android:name=".ui.activities.ConteudoFilosofiaActivity"></activity>
+        <activity android:name=".ui.activities.conteudos.WeberActivity" />
+        <activity android:name=".ui.activities.conteudos.AugusteComteActivity" />
+        <activity android:name=".ui.activities.ConteudoSociologiaActivity" />
+        <activity android:name=".ui.activities.TermoUsoActivity" />
         <activity android:name=".ui.activities.MatematicaActivity" />
         <activity android:name=".ui.activities.LembreteActivity" />
         <activity android:name=".ui.activities.CadastroAgendaActivity" />
-        <activity android:name=".ui.activities.ConteudoActivity"/>
+        <activity android:name=".ui.activities.ConteudoActivity" />
         <activity android:name=".ui.activities.LinguagemCodigoActivity" />
         <activity android:name=".ui.activities.CienciasNaturezaActivity" />
         <activity android:name=".ui.activities.NotaActivity" />

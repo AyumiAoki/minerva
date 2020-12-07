@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import com.example.minerva.R
 import com.example.minerva.service.constants.CoresNotasConstants
 import com.example.minerva.ui.viewmodel.NotaViewModel
