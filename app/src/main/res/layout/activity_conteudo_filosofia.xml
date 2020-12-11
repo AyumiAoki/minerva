@@ -12,7 +12,7 @@
         tools:context=".ui.activities.ConteudoFilosofiaActivity">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/tela_conteudo_sociologia"
+            android:id="@+id/tela_conteudo_filosofia"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />

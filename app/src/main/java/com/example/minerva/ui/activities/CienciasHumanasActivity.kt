@@ -26,18 +26,44 @@ class CienciasHumanasActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val qntdRevisado1 = snapshot.child("Geografia").child("qntdRevisados").getValue().toString()
-                text_view_tarefas_completas_geografia.setText(qntdRevisado1)
+                if(snapshot.child("Geografia").exists()){
+                    val qntdRevisado1 = snapshot.child("Geografia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_geografia.setText(qntdRevisado1)
 
-                val qntdRevisado2 = snapshot.child("Filosofia").child("qntdRevisados").getValue().toString()
-                text_view_terafas_completas_filosofia.setText(qntdRevisado2)
+                    val qntdRevisado2 = snapshot.child("Filosofia").child("qntdRevisados").getValue().toString()
+                    text_view_terafas_completas_filosofia.setText(qntdRevisado2)
 
-                val qntdRevisado3 = snapshot.child("Historia").child("qntdRevisados").getValue().toString()
-                text_view_tarefas_completas_historia.setText(qntdRevisado3)
+                    val qntdRevisado3 = snapshot.child("Historia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_historia.setText(qntdRevisado3)
 
-                val qntdRevisado4 = snapshot.child("Sociologia").child("qntdRevisados").getValue().toString()
-                text_view_tarefas_completas_sociologia.setText(qntdRevisado4)
+                    val qntdRevisado4 = snapshot.child("Sociologia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_sociologia.setText(qntdRevisado4)
+                } else {
+                    reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .child("materias").child("Geografia").child("qntdRevisados").setValue(0)
 
+                    reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .child("materias").child("Filosofia").child("qntdRevisados").setValue(0)
+
+                    reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .child("materias").child("Historia").child("qntdRevisados").setValue(0)
+
+                    reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .child("materias").child("Sociologia").child("qntdRevisados").setValue(0)
+
+                    val qntdRevisado1 = snapshot.child("Geografia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_geografia.setText(qntdRevisado1)
+
+                    val qntdRevisado2 = snapshot.child("Filosofia").child("qntdRevisados").getValue().toString()
+                    text_view_terafas_completas_filosofia.setText(qntdRevisado2)
+
+                    val qntdRevisado3 = snapshot.child("Historia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_historia.setText(qntdRevisado3)
+
+                    val qntdRevisado4 = snapshot.child("Sociologia").child("qntdRevisados").getValue().toString()
+                    text_view_tarefas_completas_sociologia.setText(qntdRevisado4)
+
+                }
             }
         })
 
@@ -55,11 +81,13 @@ class CienciasHumanasActivity : AppCompatActivity(), View.OnClickListener {
         button_filosofia.setOnClickListener(this)
         button_historia.setOnClickListener(this)
         button_sociologia.setOnClickListener(this)
+        button_exercicios_ch.setOnClickListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar
         when (item.itemId) {
             android.R.id.home -> {
+                finish()
             }
             else -> {
             }
@@ -76,10 +104,13 @@ class CienciasHumanasActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(baseContext, ConteudoFilosofiaActivity::class.java))
             }
             R.id.button_historia -> {
-                startActivity(Intent(baseContext, ConteudoSociologiaActivity::class.java))
+                startActivity(Intent(baseContext, ConteudoHistoriaActivity::class.java))
             }
             R.id.button_sociologia -> {
                 startActivity(Intent(baseContext, ConteudoSociologiaActivity::class.java))
+            }
+            R.id.button_exercicios_ch -> {
+                startActivity(Intent(baseContext, ExerciciosChActivity::class.java))
             }
             else -> {
                 startActivity(Intent(baseContext, ConteudoActivity::class.java))
