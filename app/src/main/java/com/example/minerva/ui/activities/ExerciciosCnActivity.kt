@@ -10,6 +10,16 @@ class ExerciciosCnActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercicios_cn)
 
+        if (supportActionBar != null) {
+
+            supportActionBar!!.elevation = 0f
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
+            supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+            supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_ciencias_natureza))
+            supportActionBar!!.title = "Exercicíos"
+        }
+
         //coloca o fragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.viewPageCn, Pergunta1Fragment())

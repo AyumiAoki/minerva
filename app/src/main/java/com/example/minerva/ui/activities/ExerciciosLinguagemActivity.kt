@@ -10,6 +10,16 @@ class ExerciciosLinguagemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercicios_linguagem)
 
+        if (supportActionBar != null) {
+
+            supportActionBar!!.elevation = 0f
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
+            supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
+            supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_linguagem))
+            supportActionBar!!.title = "Exercicíos"
+        }
+
         //coloca o fragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.viewPageLinguagem, Pergunta1Fragment())
