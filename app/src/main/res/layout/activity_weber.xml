@@ -14,10 +14,10 @@
         <ImageView
             android:id="@+id/imageIndustrializacao"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:contentDescription="imagem industrialização"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/auguste_comte"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

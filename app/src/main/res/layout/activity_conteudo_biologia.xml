@@ -138,6 +138,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:contentDescription="seta próximo"
                     app:tint="@color/colorWhite" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -382,6 +383,7 @@
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
                     app:tint="@color/colorWhite"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -506,6 +508,7 @@
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
                     app:tint="@color/colorWhite"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -695,6 +698,7 @@
                     android:contentDescription="seta entrar"
                     android:src="@drawable/ic_seta_proximo"
                     app:tint="@color/colorWhite"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

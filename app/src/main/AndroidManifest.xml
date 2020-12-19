@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/ic_tela_inicial"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ui.activities.ConteudoInglesActivity"/>
         <activity android:name=".ui.activities.ConteudoSociologiaActivity"/>
         <activity android:name=".ui.activities.ConteudoPortuguesActivity" />
@@ -35,10 +36,12 @@
         <activity android:name=".ui.activities.MatematicaActivity" />
         <activity android:name=".ui.activities.LembreteActivity" />
         <activity android:name=".ui.activities.CadastroLembreteActivity" />
+
         <activity android:name=".ui.activities.ConteudoActivity" />
         <activity android:name=".ui.activities.LinguagemCodigoActivity" />
         <activity android:name=".ui.activities.CienciasNaturezaActivity" />
         <activity android:name=".ui.activities.NotaActivity" />
+
         <activity android:name=".ui.activities.ConteudoGeografiaActivity" />
         <activity android:name=".ui.activities.CienciasHumanasActivity" />
         <activity android:name=".ui.activities.CadastroNotaActivity" />
