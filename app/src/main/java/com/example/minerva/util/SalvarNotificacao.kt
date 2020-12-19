@@ -64,4 +64,25 @@ object SalvarNotificacao {
         println("Chegou aqui")
         alarmMgr.cancel(alarmIntent)
     }
+
+    fun lembreteDiario(context: Context, hora: Int, minuto: Int){
+        println("Blzz")
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hora)
+        calendar.set(Calendar.MINUTE, minuto)
+        calendar.set(Calendar.SECOND, 0)
+
+
+        val alarmMgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, MyNotificationSystemDaily::class.java)
+        alarmIntent = PendingIntent.getBroadcast(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+
+        if (!calendar.after(Calendar.getInstance())) calendar.roll(Calendar.DATE, true)
+
+        println(calendar.time)
+        alarmMgr.setInexactRepeating(
+            AlarmManager.RTC, calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY, alarmIntent)
+    }
 }

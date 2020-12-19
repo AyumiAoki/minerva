@@ -55,4 +55,12 @@ object UsuarioFirebase {
             false
         }
     }
+
+    fun nomeUsuario():String{
+        if(usuarioAtual!!.isAnonymous){
+            return "Visitante"
+        }else{
+            return usuarioAtual?.displayName ?: "Visitante"
+        }
+    }
 }

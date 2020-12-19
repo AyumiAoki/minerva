@@ -2,18 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_cadastrar_lembrete"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context=".ui.activities.CadastroAgendaActivity">
+    android:background="@color/colorAzulFraco"
+    tools:context=".ui.activities.CadastroLembreteActivity">
 
     <EditText
         android:id="@+id/edit_text_titulo_agenda"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="#ffffff"
+        android:background="@color/colorAzulFraco"
+        android:fontFamily="@font/roboto"
         android:hint="Escolha um título"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,8 +49,10 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:textSize="16sp"
             android:layout_marginBottom="8dp"
-            android:background="#ffffff"
+            android:background="@color/colorAzulFraco"
             android:hint="dd/MM/yyyy"
             android:inputType="date"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -72,6 +77,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:tint="@color/colorBlack"
             android:src="@drawable/ic_relogio"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,8 +92,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="#ffffff"
+            android:background="@color/colorAzulFraco"
             android:hint="HH:mm"
+            android:fontFamily="@font/roboto"
+            android:textSize="16sp"
             android:inputType="date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,6 +104,31 @@
             app:mask="##:##" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_salvar_lembrete"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/azul"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/text_view_salvar_lembrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:fontFamily="@font/roboto"
+            android:text="Salvar lembrete"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+    <!--
     <Button
         android:id="@+id/button_salvar_lembrete"
         android:layout_width="0dp"
@@ -109,6 +142,6 @@
         android:textSize="@dimen/fonte_padrao_media"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

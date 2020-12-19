@@ -8,17 +8,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.minerva.R
 import com.example.minerva.service.constants.CoresNotasConstants
 import com.example.minerva.service.model.LembreteModel
 import com.example.minerva.util.ConfiguracaoFirebase
-import com.example.minerva.util.MyNotificationSystem
 import com.example.minerva.util.SalvarNotificacao
-import com.example.minerva.util.UsuarioFirebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_lembrete.*
-import kotlinx.android.synthetic.main.activity_nota.*
 
 class LembreteActivity : AppCompatActivity() {
     private lateinit var mLembrete: LembreteModel
@@ -43,6 +40,7 @@ class LembreteActivity : AppCompatActivity() {
                             Color.parseColor(
                                 CoresNotasConstants.AMARELO_ESCURO))
                     )
+                    layout_lembrete.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAmareloFraco))
                 }
                 CoresNotasConstants.AZUL -> {
                     supportActionBar!!.setBackgroundDrawable(
@@ -50,6 +48,7 @@ class LembreteActivity : AppCompatActivity() {
                             Color.parseColor(
                                 CoresNotasConstants.AZUL_ESCURO))
                     )
+                    layout_lembrete.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAzulFraco))
                 }
                 CoresNotasConstants.VERMELHO -> {
                     supportActionBar!!.setBackgroundDrawable(
@@ -57,6 +56,7 @@ class LembreteActivity : AppCompatActivity() {
                             Color.parseColor(
                                 CoresNotasConstants.VERMELHO_ESCURO))
                     )
+                    layout_lembrete.setBackgroundColor(ContextCompat.getColor(this, R.color.colorVermelhoFraco))
                 }
                 else -> {
                     supportActionBar!!.setBackgroundDrawable(
@@ -64,6 +64,7 @@ class LembreteActivity : AppCompatActivity() {
                             Color.parseColor(
                                 CoresNotasConstants.VERDE_ESCURO))
                     )
+                    layout_lembrete.setBackgroundColor(ContextCompat.getColor(this, R.color.colorVerdeFraco))
                 }
             }
         }catch (e: Exception){
@@ -92,7 +93,7 @@ class LembreteActivity : AppCompatActivity() {
                 finish()
             }
             1 -> {
-                val intent = Intent(this, CadastroAgendaActivity::class.java)
+                val intent = Intent(this, CadastroLembreteActivity::class.java)
 
                 val bundle = Bundle()
                 bundle.putString("idFirebase", mLembrete.idFirebase)

@@ -3,6 +3,7 @@ package com.example.minerva.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.minerva.util.UsuarioFirebase
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -14,7 +15,8 @@ class UsuarioViewModel : ViewModel() {
         /* var nomes = mAuth.currentUser!!.displayName?.split(" ")
          value = "Olá, " + nomes!!.get(0) + "!"*/
 
-        value = mAuth.currentUser?.displayName ?: "Visitante"
+        val nome = UsuarioFirebase.nomeUsuario()
+        value = nome
     }
    /* val text: LiveData<String> = _text
 

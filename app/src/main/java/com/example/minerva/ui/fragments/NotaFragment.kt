@@ -1,5 +1,6 @@
 package com.example.minerva.ui.fragments
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.example.minerva.ui.activities.NotaActivity
 import com.example.minerva.ui.adapter.NotaAdapter
 import com.example.minerva.ui.listener.NotaListListener
 import com.example.minerva.ui.viewmodel.AnotacaoViewModel
+import com.example.minerva.util.UsuarioFirebase
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -46,55 +48,14 @@ class NotaFragment : Fragment() {
         anotacaoViewModel =
             ViewModelProviders.of(this).get(AnotacaoViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_anotacao, container, false)
-        listaNotas = ArrayList()
-
-
-        class SearchFilto : androidx.appcompat.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(palavra: String): Boolean {
-                mAdapter.updateNota(listaNotas.filter {
-                    it.titulo.toUpperCase().contains(palavra.toUpperCase())
-                })
-                return false
-            }
-        }
-
-        val pesquisa = root.findViewById<ImageButton>(R.id.button_pesquisa)
-        val pesquisar =
-            root.findViewById<androidx.appcompat.widget.SearchView>(R.id.button_pesquisar)
-        val test: androidx.appcompat.widget.SearchView.OnQueryTextListener = SearchFilto()
-        progressBar = root.findViewById(R.id.progressBar_notas)
-        progressBar.visibility = View.VISIBLE
-
-        pesquisar.setOnQueryTextListener(test)
-        pesquisar.setBackgroundColor(resources.getColor(R.color.colorWhite))
-        pesquisar.setOnCloseListener {
-            pesquisa.visibility = View.VISIBLE
-            pesquisar.visibility = View.INVISIBLE
-            true
-        }
-        pesquisa.setOnClickListener {
-            pesquisa.visibility = View.INVISIBLE
-            pesquisar.visibility = View.VISIBLE
-            pesquisar.isIconified = false
-        }
-
-
-        val adicionarNota = root.findViewById<FloatingActionButton>(R.id.button_adicionar_anotacao)
-        adicionarNota.setOnClickListener {
-            startActivity(Intent(mListener as Context, CadastroNotaActivity::class.java))
-        }
-
-        val recycler = root.findViewById<RecyclerView>(R.id.list_nota)
-        recycler.setHasFixedSize(true)
-        recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = mAdapter
 
         mListListener = object : NotaListListener {
-            override fun onClick(idNota: String, titulo: String, conteudo: String, cor: String) {
+            override fun onClick(
+                idNota: String,
+                titulo: String,
+                conteudo: String,
+                cor: String
+            ) {
                 val intent = Intent(context, NotaActivity::class.java)
 
                 val bundle = Bundle()
@@ -109,40 +70,99 @@ class NotaFragment : Fragment() {
 
             override fun onDelete(id: String) {}
         }
+        if (!UsuarioFirebase.usuarioAtual!!.isAnonymous) {
+            listaNotas = ArrayList()
 
 
-        val data = FirebaseDatabase.getInstance().reference
-        val notas = data.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
-            .child("notas")
-
-        val query = notas.orderByChild("titulo")
-        //     val query = notas.orderByChild("idUsuario").equalTo(FirebaseAuth.getInstance().currentUser!!.uid)
-        query.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val list: MutableList<NotaListModel> = ArrayList()
-                for (postSnapshot in dataSnapshot.children) {
-                    val idNota = postSnapshot.key.toString()
-                    val titulo = postSnapshot.child("titulo").value.toString()
-                    val conteudo = postSnapshot.child("conteudo").value.toString()
-                    val cor = postSnapshot.child("cor").value.toString()
-                    list.add(NotaListModel(idNota, titulo, conteudo, cor))
+            class SearchFilto : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    return false
                 }
 
-                listaNotas = list
-                mAdapter.updateNota(list)
-                listaVazia()
-                if (progressBar != null) {
+                override fun onQueryTextChange(palavra: String): Boolean {
+                    mAdapter.updateNota(listaNotas.filter {
+                        it.titulo.toUpperCase().contains(palavra.toUpperCase())
+                    })
+                    return false
+                }
+            }
+
+            val pesquisa = root.findViewById<ImageButton>(R.id.button_pesquisa)
+            val pesquisar =
+                root.findViewById<androidx.appcompat.widget.SearchView>(R.id.button_pesquisar)
+            val test: androidx.appcompat.widget.SearchView.OnQueryTextListener = SearchFilto()
+            progressBar = root.findViewById(R.id.progressBar_notas)
+            progressBar.visibility = View.VISIBLE
+
+            pesquisar.setOnQueryTextListener(test)
+            pesquisar.setBackgroundColor(resources.getColor(R.color.colorWhite))
+            pesquisar.setOnCloseListener {
+                pesquisa.visibility = View.VISIBLE
+                pesquisar.visibility = View.INVISIBLE
+                true
+            }
+            pesquisa.setOnClickListener {
+                pesquisa.visibility = View.INVISIBLE
+                pesquisar.visibility = View.VISIBLE
+                pesquisar.isIconified = false
+            }
+
+
+            val adicionarNota =
+                root.findViewById<FloatingActionButton>(R.id.button_adicionar_anotacao)
+            adicionarNota.setOnClickListener {
+                startActivity(Intent(mListener as Context, CadastroNotaActivity::class.java))
+            }
+
+            val recycler = root.findViewById<RecyclerView>(R.id.list_nota)
+            recycler.setHasFixedSize(true)
+            recycler.layoutManager = LinearLayoutManager(context)
+            recycler.adapter = mAdapter
+
+
+            val data = FirebaseDatabase.getInstance().reference
+            val notas = data.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
+                .child("notas")
+
+            val query = notas.orderByChild("titulo")
+            //     val query = notas.orderByChild("idUsuario").equalTo(FirebaseAuth.getInstance().currentUser!!.uid)
+            query.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val list: MutableList<NotaListModel> = ArrayList()
+                    for (postSnapshot in dataSnapshot.children) {
+                        val idNota = postSnapshot.key.toString()
+                        val titulo = postSnapshot.child("titulo").value.toString()
+                        val conteudo = postSnapshot.child("conteudo").value.toString()
+                        val cor = postSnapshot.child("cor").value.toString()
+                        list.add(NotaListModel(idNota, titulo, conteudo, cor))
+                    }
+
+                    listaNotas = list
+                    mAdapter.updateNota(list)
+                    listaVazia()
+                    if (progressBar != null) {
+                        progressBar.visibility = View.INVISIBLE
+                    }
+
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
                     progressBar.visibility = View.INVISIBLE
                 }
+            })
 
-            }
+        } else {
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                progressBar.visibility = View.INVISIBLE
-            }
-        })
+            AlertDialog.Builder(requireContext())
+                .setTitle("Ops!")
+                .setMessage("Para ter acesso a essa funcionalidade você precisa ser um Minerva!")
+                .setPositiveButton("Ok", null)
+                .setNegativeButton("Login"){ _, _ ->
+                    mListener.onCreateAnotacao(1)
 
-
+                }
+                .show()
+        }
         return root
     }
 
@@ -164,7 +184,6 @@ class NotaFragment : Fragment() {
         } catch (e: ClassCastException) {
             throw ClassCastException(activity.toString() + " deve implementar CreateEmailListener")
         }
-        mListener.onCreateAnotacao(1)
 
     }
 

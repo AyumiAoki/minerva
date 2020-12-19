@@ -1,17 +1,14 @@
 package com.example.minerva.ui.activities
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.minerva.R
 import com.example.minerva.service.constants.CoresNotasConstants
 import com.example.minerva.service.model.LembreteModel
@@ -22,11 +19,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import kotlinx.android.synthetic.main.activity_cadastro_agenda.*
-import kotlinx.android.synthetic.main.activity_cadastro_nota.*
 import java.util.*
 
 
-class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
+class CadastroLembreteActivity : AppCompatActivity(), View.OnClickListener,
     SelecaoCoresFragment.SelecaoCores, DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
 
@@ -38,7 +34,7 @@ class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
     var diaUsuario: Int = 0
     var horaUsuario: Int = 0
     var minutoUsuario: Int = 0
-    var cor = "#33AEC4"
+    private lateinit var cor :String
 
     private var anoAtual = 0
     private var mesAtual = 0
@@ -60,6 +56,7 @@ class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
 
         setContentView(R.layout.activity_cadastro_agenda)
 
+        cor = "#33AEC4"
         criarPickers()
 
         button_escolher_data.setOnClickListener(this)
@@ -69,7 +66,7 @@ class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
         val bundle = intent.extras
         if (bundle != null) {
             println("hihihihi")
-            button_salvar_lembrete.text = "Atualizar lembrete"
+            text_view_salvar_lembrete.text = "Atualizar lembrete"
             cor = bundle.getString("cor") ?: ""
             diaUsuario = bundle.getInt("dia")
             mesUsario = bundle.getInt("mes")
@@ -89,50 +86,8 @@ class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
             var minuto = if (minutoUsuario < 10) "0$minutoUsuario" else "$minutoUsuario"
             var hora = if (horaUsuario < 10) "0$horaUsuario" else "$horaUsuario"
             edit_text_escolher_hora.setText("$hora:$minuto")
-
-            try {
-                when (cor) {
-                    CoresNotasConstants.AMARELO -> {
-                        supportActionBar!!.setBackgroundDrawable(
-                            ColorDrawable(
-                                Color.parseColor(
-                                    CoresNotasConstants.AMARELO_ESCURO
-                                )
-                            )
-                        )
-                    }
-                    CoresNotasConstants.AZUL -> {
-                        supportActionBar!!.setBackgroundDrawable(
-                            ColorDrawable(
-                                Color.parseColor(
-                                    CoresNotasConstants.AZUL_ESCURO
-                                )
-                            )
-                        )
-                    }
-                    CoresNotasConstants.VERMELHO -> {
-                        supportActionBar!!.setBackgroundDrawable(
-                            ColorDrawable(
-                                Color.parseColor(
-                                    CoresNotasConstants.VERMELHO_ESCURO
-                                )
-                            )
-                        )
-                    }
-                    else -> {
-                        supportActionBar!!.setBackgroundDrawable(
-                            ColorDrawable(
-                                Color.parseColor(
-                                    CoresNotasConstants.VERDE_ESCURO
-                                )
-                            )
-                        )
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
         }
+        onCor(cor)
 
     }
 
@@ -189,45 +144,34 @@ class CadastroAgendaActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun onCor(cor: String) {
-        this.cor = cor
+        this.cor= cor
+        val corFraca: Int
+        val corForte : Int
         when (cor) {
             CoresNotasConstants.AMARELO -> {
-                supportActionBar!!.setBackgroundDrawable(
-                    ColorDrawable(
-                        Color.parseColor(
-                            CoresNotasConstants.AMARELO_ESCURO
-                        )
-                    )
-                )
+                corFraca = ContextCompat.getColor(this, R.color.colorAmareloFraco)
+                corForte = Color.parseColor(CoresNotasConstants.AMARELO_ESCURO)
             }
             CoresNotasConstants.AZUL -> {
-                supportActionBar!!.setBackgroundDrawable(
-                    ColorDrawable(
-                        Color.parseColor(
-                            CoresNotasConstants.AZUL_ESCURO
-                        )
-                    )
-                )
+                corFraca = ContextCompat.getColor(this, R.color.colorAzulFraco)
+                corForte = Color.parseColor(CoresNotasConstants.AZUL_ESCURO)
             }
             CoresNotasConstants.VERMELHO -> {
-                supportActionBar!!.setBackgroundDrawable(
-                    ColorDrawable(
-                        Color.parseColor(
-                            CoresNotasConstants.VERMELHO_ESCURO
-                        )
-                    )
-                )
+                corFraca = ContextCompat.getColor(this, R.color.colorVermelhoFraco)
+                corForte = Color.parseColor(CoresNotasConstants.VERMELHO_ESCURO)
             }
             else -> {
-                supportActionBar!!.setBackgroundDrawable(
-                    ColorDrawable(
-                        Color.parseColor(
-                            CoresNotasConstants.VERDE_ESCURO
-                        )
-                    )
-                )
+                corFraca = ContextCompat.getColor(this, R.color.colorVerdeFraco)
+                corForte = Color.parseColor(CoresNotasConstants.VERDE_ESCURO)
+
             }
         }
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(corForte))
+        button_salvar_lembrete.setCardBackgroundColor(corForte)
+        view_cadastrar_lembrete.setBackgroundColor(corFraca)
+        edit_text_titulo_agenda.setBackgroundColor(corFraca)
+        edit_text_escolher_data.setBackgroundColor(corFraca)
+        edit_text_escolher_hora.setBackgroundColor(corFraca)
     }
 
     private fun chamarMyDialog() {

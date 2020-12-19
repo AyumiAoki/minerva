@@ -29,6 +29,7 @@ class ConteudoFragment : Fragment() {
             textView.text = it
         })
 
+
         val buttonCienciasHumanas = root.findViewById<View>(R.id.button_ciencias_humanas)
         buttonCienciasHumanas.setOnClickListener {
             mListener.onCreateConteudo(1)

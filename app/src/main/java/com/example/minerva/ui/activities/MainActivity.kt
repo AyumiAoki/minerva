@@ -15,8 +15,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.minerva.R
 import com.example.minerva.ui.fragments.AgendaFragment
-import com.example.minerva.ui.fragments.NotaFragment
 import com.example.minerva.ui.fragments.ConteudoFragment
+import com.example.minerva.ui.fragments.NotaFragment
 import com.example.minerva.ui.fragments.UsuarioFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -161,6 +161,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
             2 -> {
                 closeKeyBoard()
             }
+            3 -> {
+                startActivity(Intent(baseContext, SuaAtividadeActivity::class.java))
+            }
             4 -> {
                 deslogar()
             }
@@ -192,7 +195,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
 
-    override fun onCreateAnotacao(codigo: Int) {}
+    override fun onCreateAnotacao(codigo: Int) {
+        when (codigo) {
+            1 -> {
+                finish()
+                startActivity(Intent(baseContext, IntroducaoActivity::class.java))
+            }
+        }
+    }
 
     private fun loadImage(handler: Handler) {
         var img: Bitmap? = null
@@ -217,7 +227,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun onAnotacao(codigo: Int) {
-        TODO("Not yet implemented")
+        when (codigo) {
+            1 -> {
+                finish()
+                startActivity(Intent(baseContext, IntroducaoActivity::class.java))
+            }
+        }
 
     }
 }

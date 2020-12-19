@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.minerva.R
 import com.example.minerva.service.constants.CoresNotasConstants
 import com.example.minerva.service.model.NotaFirebaseModel
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_cadastro_nota.*
 class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
     SelecaoCoresFragment.SelecaoCores {
 
-    private var mCor: String = "#33AEC4"
+    private lateinit var mCor: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,38 +32,19 @@ class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
             supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.AZUL_ESCURO)))
         }
         setContentView(R.layout.activity_cadastro_nota)
+        mCor = "#33AEC4"
 
         button_salvar_nota.setOnClickListener(this)
 
         val bundle = intent.extras
         if (bundle != null) {
-            button_salvar_nota.text = "Salvar Alterações"
+            text_view_salvar_nota.text = "Salvar alterações"
             edit_titulo_nota.setText(bundle.getString("titulo") ?: "")
             edit_conteudo_nota.setText(bundle.getString("conteudo") ?: "")
             mCor = bundle.getString("cor") ?: "#33AEC4"
         }
-        try {
-            layout_cadastro_produto.setBackgroundColor(Color.parseColor(mCor))
-            edit_titulo_nota.setBackgroundColor(Color.parseColor(mCor))
-            edit_conteudo_nota.setBackgroundColor(Color.parseColor(mCor))
-            when (mCor) {
-                CoresNotasConstants.AMARELO -> {
-                    supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.AMARELO_ESCURO)))
-                }
-                CoresNotasConstants.AZUL -> {
-                    supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.AZUL_ESCURO)))
-                }
-                CoresNotasConstants.VERMELHO -> {
-                    supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.VERMELHO_ESCURO)))
-                }
-                else -> {
-                    supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.VERDE_ESCURO)))
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
+        onCor(mCor)
+        edit_titulo_nota.requestFocus()
     }
 
     override fun onClick(v: View) {
@@ -117,23 +99,35 @@ class CadastroNotaActivity : AppCompatActivity(), View.OnClickListener,
 
     override fun onCor(cor: String) {
         mCor = cor
-        layout_cadastro_produto.setBackgroundColor(Color.parseColor(cor))
+      /*  layout_cadastro_produto.setBackgroundColor(Color.parseColor(cor))
         edit_titulo_nota.setBackgroundColor(Color.parseColor(cor))
-        edit_conteudo_nota.setBackgroundColor(Color.parseColor(cor))
+        edit_conteudo_nota.setBackgroundColor(Color.parseColor(cor))*/
+        val corFraca: Int
+        val corForte : Int
         when (cor) {
             CoresNotasConstants.AMARELO -> {
-                supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.AMARELO_ESCURO)))
+                corFraca = ContextCompat.getColor(this, R.color.colorAmareloFraco)
+                corForte = Color.parseColor(CoresNotasConstants.AMARELO_ESCURO)
             }
             CoresNotasConstants.AZUL -> {
-                supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.AZUL_ESCURO)))
+                corFraca = ContextCompat.getColor(this, R.color.colorAzulFraco)
+                corForte = Color.parseColor(CoresNotasConstants.AZUL_ESCURO)
             }
             CoresNotasConstants.VERMELHO -> {
-                supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.VERMELHO_ESCURO)))
+                corFraca = ContextCompat.getColor(this, R.color.colorVermelhoFraco)
+                corForte = Color.parseColor(CoresNotasConstants.VERMELHO_ESCURO)
             }
             else -> {
-                supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor(CoresNotasConstants.VERDE_ESCURO)))
+                corFraca = ContextCompat.getColor(this, R.color.colorVerdeFraco)
+                corForte = Color.parseColor(CoresNotasConstants.VERDE_ESCURO)
+
             }
         }
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(corForte))
+        layout_cadastro_produto.setBackgroundColor(corFraca)
+        edit_titulo_nota.setBackgroundColor(corFraca)
+        edit_conteudo_nota.setBackgroundColor(corFraca)
+        button_salvar_nota.setCardBackgroundColor(corForte)
     }
 
     private fun chamarMyDialog() {

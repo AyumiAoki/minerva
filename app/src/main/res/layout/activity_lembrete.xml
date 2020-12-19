@@ -9,7 +9,7 @@
     tools:context=".ui.activities.LembreteActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_nota"
+        android:id="@+id/layout_lembrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
             android:paddingStart="16dp"
-            android:paddingTop="32dp"
+            android:paddingTop="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
             android:text="Estudar lp"

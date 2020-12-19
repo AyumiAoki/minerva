@@ -4,28 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorPrimary"
     tools:context=".ui.activities.SplashScreenActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar_splash"
-        android:background="@color/colorWhite"
-        style="?android:attr/progressBarStyle"
+    <ImageView
         android:layout_width="wrap_content"
+        android:src="@drawable/ic_tela_inicial"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nome_app_splash"
-        android:layout_marginTop="16dp"/>
-
-    <TextView
-        android:id="@+id/text_nome_app_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/rammetto_one"
-        android:text="@string/nomeApp"
-        android:textColor="#000"
-        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

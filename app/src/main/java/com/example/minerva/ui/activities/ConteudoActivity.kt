@@ -12,6 +12,8 @@ class ConteudoActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Mostrar o botão
         supportActionBar!!.setHomeButtonEnabled(true)      //Ativar o botão
         setContentView(R.layout.activity_conteudo)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean { //Botão adicional na ToolBar

@@ -3,23 +3,42 @@
     package="com.example.minerva">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_tela_inicial"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_tela_inicial"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.TermoUsoActivity"></activity>
+        <activity android:name=".ui.activities.ConteudoInglesActivity"/>
+        <activity android:name=".ui.activities.ConteudoSociologiaActivity"/>
+        <activity android:name=".ui.activities.ConteudoPortuguesActivity" />
+        <activity android:name=".ui.activities.conteudos.WeberActivity" />
+        <activity android:name=".ui.activities.conteudos.AugusteComteActivity" />
+        <activity android:name=".ui.activities.ConteudoLiteraturaActivity" />
+        <activity android:name=".ui.activities.ConteudoMatematicaActivity" />
+        <activity android:name=".ui.activities.ConteudoFisicaActivity" />
+        <activity android:name=".ui.activities.ConteudoQuimicaActivity" />
+        <activity android:name=".ui.activities.ConteudoBiologiaActivity" />
+        <activity android:name=".ui.activities.ConteudoHistoriaActivity" />
+        <activity android:name=".ui.activities.conteudos.DemografiaActivity" />
+        <activity android:name=".ui.activities.ExerciciosMatematicaActivity" />
+        <activity android:name=".ui.activities.ExerciciosLinguagemActivity" />
+        <activity android:name=".ui.activities.ExerciciosCnActivity" />
+        <activity android:name=".ui.activities.ExerciciosChActivity" />
+        <activity android:name=".ui.activities.ConteudoFilosofiaActivity" />
+        <activity android:name=".ui.activities.SuaAtividadeActivity"/>
+        <activity android:name=".ui.activities.TermoUsoActivity" />
         <activity android:name=".ui.activities.MatematicaActivity" />
         <activity android:name=".ui.activities.LembreteActivity" />
-        <activity android:name=".ui.activities.CadastroAgendaActivity" />
-        <activity android:name=".ui.activities.ConteudoActivity"/>
+        <activity android:name=".ui.activities.CadastroLembreteActivity" />
+        <activity android:name=".ui.activities.ConteudoActivity" />
         <activity android:name=".ui.activities.LinguagemCodigoActivity" />
         <activity android:name=".ui.activities.CienciasNaturezaActivity" />
         <activity android:name=".ui.activities.NotaActivity" />
-        <activity android:name=".ui.activities.IndustrializacaoActivity" />
         <activity android:name=".ui.activities.ConteudoGeografiaActivity" />
         <activity android:name=".ui.activities.CienciasHumanasActivity" />
         <activity android:name=".ui.activities.CadastroNotaActivity" />

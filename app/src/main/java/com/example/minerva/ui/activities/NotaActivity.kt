@@ -143,6 +143,7 @@ class NotaActivity : AppCompatActivity() {
     }
 
     private fun excluirNota(){
+
         val  reference = FirebaseDatabase.getInstance().reference
         reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid).child("notas").child(mIdNota).removeValue()
         finish()

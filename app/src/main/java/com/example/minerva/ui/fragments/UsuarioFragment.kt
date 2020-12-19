@@ -42,6 +42,7 @@ class UsuarioFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_usuario, container, false)
         val textViewNome: TextView = root.findViewById(R.id.text_nome_usuario_usuario)
 
+        val buttonAtividade = root.findViewById<View>(R.id.button_atividade)
         val buttonSair = root.findViewById<View>(R.id.button_sair)
         val editMudarNome = root.findViewById<EditText>(R.id.edit_mudar_nome)
         val buttonMudarNome = root.findViewById<View>(R.id.button_mudar_nome)
@@ -49,7 +50,11 @@ class UsuarioFragment : Fragment() {
         val buttonEditarFoto = root.findViewById<View>(R.id.button_editar_foto)
         imagemEditarFoto = root.findViewById<ImageView>(R.id.image_adicionar_foto)
 
-        textViewNome.text = UsuarioFirebase.usuarioAtual?.displayName ?: "Visitante"
+
+        buttonAtividade.setOnClickListener{
+            mListener.onListenerUsuario(3)
+        }
+        textViewNome.text = UsuarioFirebase.nomeUsuario()
         imagem = root.findViewById(R.id.image_usuario)
         if (mListener.passarImagem() != null) {
             imagem.setImageBitmap(mListener.passarImagem())

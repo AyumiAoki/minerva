@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">minerva</string>
+    <string name="app_name">Minerva</string>
     <string name="title_activity_splash1">SplashActivity1</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="channel_id">channel1</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="nomeApp">Minerva</string>
@@ -90,6 +90,42 @@ para revisar os conteúdos do ENEM.</string>
 \n\n10.4. A tolerância ou o não exercício, por qualquer das Partes, de quaisquer direitos a ela assegurados nestes Termos de Uso ou na lei em geral não importará em novação ou em renúncia a qualquer desses direitos, podendo a referida Parte exercê-los durante a vigência destes Termos de Uso.
 \n\n10.5. Nenhuma cláusula destes Termos de Uso deve afetar quaisquer direitos legalmente estabelecidos em favor dos consumidores que utilizam a plataforma Minerva.
 \n\n</string>
+
+    <string name="texto_comte1"><b> &#160; &#160; &#8226;</b> Contexto histórico e social</string>
+    <string name="texto_comte2"><b> &#160; &#160; &#8226;</b> Viveu durante a revolução francesa.</string>
+    <string name="texto_comte3"><b> &#160; &#160; &#8226;</b> Viveu durante a revolução industrial.</string>
+    <string name="texto_comte4"><b> &#160; &#160; &#8226;</b> Viveu o surgimento da ciência moderna.</string>
+    <string name="texto_comte5"><b> &#160; &#160; &#8226;</b> Suas aspirações e experiências o levaram a querer ordenar o mundo para obter um progresso através de tal ordem, isso além de gerar o movimento positivista, gerou a ideia de uma ciência capaz de descrever os fenômenos sociais de forma universal, tal ideia constituiu a sociologia.<br></br></string>
+    <string name="texto_comte6"><b> O positivismo</b></string>
+    <string name="texto_comte7">O positivismo adota critérios racionais, históricos e sistemáticos para entender as transformações sociais:</string>
+    <string name="texto_comte8"><b> &#160; &#160; &#8226;</b> Corrente sociológica do século 19.</string>
+    <string name="texto_comte9"><b> &#160; &#160; &#8226;</b> Era entendida como o conhecimento verdadeiro sobre a sociedade obtido por meio da ciência.</string>
+    <string name="texto_comte10"><b> &#160; &#160; &#8226;</b> Tinha o propósito de alcançar a ordem e o progresso através da ciência.</string>
+    <string name="texto_comte11"><b>Lei dos 3 estados</b></string>
+    <string name="texto_comte12">Com base nas ideias positivistas, Comte criou a teoria das três Leis dos estados. ele afirmava que as sociedades passariam por três estados de pensamento:</string>
+    <string name="texto_comte13"><b> &#160; &#160; &#8226;</b> Estado teológico: Os fenômenos sociais são explicados através de ações divinas.</string>
+    <string name="texto_comte14"><b> &#160; &#160; &#8226;</b> Estado metafísico: Os acontecimentos sociais são explicados através de abstrações teóricas.</string>
+    <string name="texto_comte15"><b> &#160; &#160; &#8226;</b> Estado positivo: Os acontecimentos são explicados através de científicos elaborados com base na razão.</string>
+    <string name="texto_comte16">Para Comte o progresso social só seria possível no estado positivo onde uma sociedade por meio do uso científicos dos dados obtidos pela razão se ordenasse.</string>
+
+    <string name="texto_weber1"><b> Ações sociais:</b></string>
+    <string name="texto_weber2">Weber acreditava que o estudo da sociedade (sociologia) deveria levar em conta nossos desejos, vontades e costumes. Esses desejos e costumes juntamente com nossa razão (para ele), movem nossas ações sociais que guiam a sociedade. As ideias, as crenças e os valores eram os principais motivos das mudanças sociais segundo Max. Ele acreditava na liberdade de um sujeito agir e modificar a sua realidade e por meio da ação social guiar a sociedade.</string>
+    <string name="texto_weber3"><b>Tipos de ações sociais:</b></string>
+    <string name="texto_weber4">As ações sociais irracionais são todas aquelas que acontecem de forma não pensada e não controlada:</string>
+    <string name="texto_weber5"><b> &#160; &#160; &#8226;</b> Ação social irracional afetiva: Ações movidas por sentimentos como ódio, amor, paixão, ressentimento, orgulho entre outros.</string>
+    <string name="texto_weber6"><b> &#160; &#160; &#8226;</b> Ação social irracional tradicional: Ações feitas por meio do cotidiano, por meio dos costumes.</string>
+    <string name="texto_weber7">As ações sociais racionais são todas aquelas que acontecem de forma pensada e controlada:</string>
+    <string name="texto_weber8"><b> &#160; &#160; &#8226;</b> Ação social racional com relação a fins: Ações que fazemos através de escolhas racionais com a finalidade de decidir o melhor caminho ou forma de seguir.</string>
+    <string name="texto_weber9"><b> &#160; &#160; &#8226;</b> Ação social racional movida por valores: Ações movidas por valores morais, éticos, religiosos, políticos, crenças entre outros.</string>
+    <string name="texto_weber10"><b>A Sociologia Compreensiva</b></string>
+    <string name="texto_weber11">A sociologia compreensiva considera a motivação dos indivíduos e grupos diante das ações sociais que praticam, levando em conta a sociedade em que vivem. A realidade social é o resultados das formas de relação entre os sujeitos. Max Weber entendia por sociologia compreensiva uma ciência que se propõe a compreender a atividade social e, deste modo, explicar causalmente seu desenrolar e seus efeitos. Para explicar o mundo social, importa compreender também a ação dos seres humanos do ponto de vista do sentido e dos valores.</string>
+
+    <string name="texto_weber13">Com base nas ideias positivistas, Comte criou a teoria das três Leis dos estados. ele afirmava que as sociedades passariam por três estados de pensamento:</string>
+    <string name="texto_weber14"><b> &#160; &#160; &#8226;</b> Estado teológico: Os fenômenos sociais são explicados através de ações divinas.</string>
+    <string name="texto_weber15"><b> &#160; &#160; &#8226;</b> Estado metafísico: Os acontecimentos sociais são explicados através de abstrações teóricas.</string>
+    <string name="texto_weber16"><b> &#160; &#160; &#8226;</b> Estado positivo: Os acontecimentos são explicados através de científicos elaborados com base na razão.</string>
+    <string name="texto_weber17">Para Comte o progresso social só seria possível no estado positivo onde uma sociedade por meio do uso científicos dos dados obtidos pela razão se ordenasse.</string>
+
 
 
 
