@@ -8,7 +8,6 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.minerva.R
-import com.example.minerva.ui.fragments.perguntas.linguagem.Pergunta2Fragment
 import kotlinx.android.synthetic.main.fragment_exercicio.view.*
 
 class Pergunta1Fragment : Fragment() {

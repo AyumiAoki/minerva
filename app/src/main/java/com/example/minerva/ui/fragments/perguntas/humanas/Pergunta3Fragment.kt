@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.minerva.R
-import com.example.minerva.ui.fragments.perguntas.linguagem.Pergunta2Fragment
 import kotlinx.android.synthetic.main.fragment_exercicio.view.*
 
 class Pergunta3Fragment : Fragment() {

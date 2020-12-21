@@ -18,7 +18,7 @@
             android:layout_margin="8dp"
             android:contentDescription="imagem industrialização"
             android:scaleType="fitXY"
-            android:src="@drawable/auguste_comte"
+            android:src="@drawable/max"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

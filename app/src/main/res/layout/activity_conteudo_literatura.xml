@@ -25,7 +25,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardElevation="0px"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image1"
@@ -47,7 +47,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
-                    android:src="@drawable/ic_t"
+                    android:src="@drawable/ic_t_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -71,11 +71,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -87,7 +87,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image2"
@@ -110,7 +110,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 2"
-                    android:src="@drawable/ic_h"
+                    android:src="@drawable/ic_h_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -133,11 +133,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -149,7 +149,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -163,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image3"
@@ -172,7 +172,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 3"
-                    android:src="@drawable/ic_c"
+                    android:src="@drawable/ic_c_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -195,11 +195,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -211,7 +211,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -225,7 +225,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image4"
@@ -234,7 +234,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 4"
-                    android:src="@drawable/ic_q"
+                    android:src="@drawable/ic_q_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -257,11 +257,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -273,7 +273,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -287,7 +287,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image5"
@@ -296,7 +296,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 5"
-                    android:src="@drawable/ic_c"
+                    android:src="@drawable/ic_c_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -319,11 +319,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -335,7 +335,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -349,7 +349,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image6"
@@ -358,7 +358,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 6"
-                    android:src="@drawable/ic_i"
+                    android:src="@drawable/ic_i_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -381,11 +381,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -397,7 +397,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -411,7 +411,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image7"
@@ -420,7 +420,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 7"
-                    android:src="@drawable/ic_m"
+                    android:src="@drawable/ic_m_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -443,11 +443,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -459,7 +459,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -473,7 +473,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image8"
@@ -482,7 +482,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 8"
-                    android:src="@drawable/ic_o"
+                    android:src="@drawable/ic_o_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -505,11 +505,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -521,7 +521,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -535,7 +535,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image9"
@@ -544,7 +544,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 9"
-                    android:src="@drawable/ic_g"
+                    android:src="@drawable/ic_g_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -567,11 +567,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="seta próximo" />
+                    android:contentDescription="seta próximo"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -585,7 +585,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/verdeEscuro"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -599,7 +599,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
-                android:background="@color/azul">
+                android:background="@color/verde">
 
                 <ImageView
                     android:id="@+id/image10"
@@ -608,7 +608,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="8dp"
                     android:contentDescription="Ícone 10"
-                    android:src="@drawable/ic_g"
+                    android:src="@drawable/ic_g_verde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -632,10 +632,10 @@
                     android:layout_margin="8dp"
                     android:contentDescription="seta entrar"
                     android:src="@drawable/ic_seta_proximo"
-                    android:tint="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorWhite" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

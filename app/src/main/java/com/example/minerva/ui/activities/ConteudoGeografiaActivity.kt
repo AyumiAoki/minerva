@@ -10,6 +10,7 @@ import com.example.minerva.R
 import com.example.minerva.service.model.AssuntoModel
 import com.example.minerva.service.model.MateriaModel
 import com.example.minerva.ui.activities.conteudos.AugusteComteActivity
+import com.example.minerva.ui.activities.conteudos.DemografiaActivity
 import com.example.minerva.ui.activities.conteudos.WeberActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -74,7 +75,7 @@ class ConteudoGeografiaActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.button_1 -> {
-                startActivity(Intent(baseContext, AugusteComteActivity::class.java))
+                startActivity(Intent(baseContext, DemografiaActivity::class.java))
             }
             R.id.button_2 -> {
                 startActivity(Intent(baseContext, WeberActivity::class.java))

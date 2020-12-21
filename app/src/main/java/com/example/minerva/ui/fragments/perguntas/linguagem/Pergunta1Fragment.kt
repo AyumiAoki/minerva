@@ -8,6 +8,7 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.minerva.R
+import com.example.minerva.ui.fragments.perguntas.linguagem.Pergunta2Fragment
 import kotlinx.android.synthetic.main.fragment_exercicio.view.*
 
 class Pergunta1Fragment : Fragment() {
@@ -49,17 +50,21 @@ class Pergunta1Fragment : Fragment() {
         val textE = view.findViewById<TextView>(R.id.txt_opcao_e)
 
         text.text =
-            "O objeto de estudo da sociologia, para Durkheim, é o fato social, que deve ser tratado como \"coisa\" e o sociólogo deve afastar suas prenoções e preconceitos. A construção durkheimiana do objeto de estudo da sociologia pode ser considerada:"
+            "(ENEM/2018) Na sociologia e na literatura, o brasileiro foi por vezes tratado como cordial e hospitaleiro, mas não é isso o que acontece nas redes sociais: a democracia racial apregoada por Gilberto Freyre passa ao largo do que acontece diariamente nas comunidades virtuais do país. Levantamento inédito realizado pelo projeto Comunica que Muda [...] mostra em números a intolerância do internauta tupiniquim. Entre abril e junho, um algoritmo vasculhou plataformas [...] atrás de mensagens e textos sobre temas sensíveis, como racismo, posicionamento político e homofobia. Foram identificadas 393 284 menções, sendo que 84% delas com abordagem negativa, de exposição do preconceito e da discriminação.\n" +
+                    "\n" +
+                    "Disponível em: https://oglobo.globo.com. Acesso em: 6 dez. 2017 (adaptado).\n" +
+                    "\n" +
+                    "Ao abordar a postura do internauta brasileiro mapeada por meio de uma pesquisa em plataformas virtuais, o texto:\n"
         textA.text =
-            " a) Positivista, pois se fundamenta na busca de objetividade e neutralidade."
+            "a) Minimiza o alcance da comunicação digital."
         textB.text =
-            "b) Dialética , pois reconhece a existência de uma realidade exterior ao pesquisador."
+            "b) Refuta ideias preconcebidas sobre o brasileiro."
         textC.text =
-            "c) Kantiana, pois trata da \"coisa em si\" e realiza a coisificação da realidade."
+            "c) Relativiza responsabilidades sobre a noção de respeito."
         textD.text =
-            "d) Nietzschiana, pois coloca a \"vontade de poder\" como fundamento para a pesquisa."
+            "d) Exemplifica conceitos contidos na literatura e na sociologia."
         textE.text =
-            "e) Weberiana, pois aborda a ação social racional atribuída por um sujeito."
+            "d) Expõe a ineficácia dos estudos para alterar tal comportamento."
     }
 
     private fun trocarFragment(fragment: Fragment) {
@@ -69,7 +74,8 @@ class Pergunta1Fragment : Fragment() {
 
     private fun conferir(view: View) {
         view.txt_opcao_a.setOnClickListener {
-            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.verde))
+            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.vermelho))
+            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.verde))
 
             view.txt_opcao_b.setOnClickListener {
             }
@@ -85,8 +91,7 @@ class Pergunta1Fragment : Fragment() {
         }
 
         view.txt_opcao_b.setOnClickListener {
-            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.vermelho))
-            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.verde))
+            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.verde))
 
             view.txt_opcao_a.setOnClickListener {
             }
@@ -103,7 +108,7 @@ class Pergunta1Fragment : Fragment() {
 
         view.txt_opcao_c.setOnClickListener {
             view.txt_opcao_c.setBackgroundColor(resources.getColor(R.color.vermelho))
-            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.verde))
+            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.verde))
 
             view.txt_opcao_a.setOnClickListener {
             }
@@ -120,7 +125,7 @@ class Pergunta1Fragment : Fragment() {
 
         view.txt_opcao_d.setOnClickListener {
             view.txt_opcao_d.setBackgroundColor(resources.getColor(R.color.vermelho))
-            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.verde))
+            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.verde))
 
             view.txt_opcao_a.setOnClickListener {
             }
@@ -137,7 +142,7 @@ class Pergunta1Fragment : Fragment() {
 
         view.txt_opcao_e.setOnClickListener {
             view.txt_opcao_e.setBackgroundColor(resources.getColor(R.color.vermelho))
-            view.txt_opcao_a.setBackgroundColor(resources.getColor(R.color.verde))
+            view.txt_opcao_b.setBackgroundColor(resources.getColor(R.color.verde))
 
             view.txt_opcao_a.setOnClickListener {
             }

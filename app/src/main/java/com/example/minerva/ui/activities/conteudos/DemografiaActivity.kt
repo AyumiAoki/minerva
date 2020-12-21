@@ -41,7 +41,7 @@ class DemografiaActivity : AppCompatActivity() {
                 )
             )
         }
-        setContentView(R.layout.activity_auguste_comte)
+        setContentView(R.layout.activity_demografia)
 
         val reference = FirebaseDatabase.getInstance().reference
         val m: DatabaseReference = reference.child("usuarios").child(FirebaseAuth.getInstance().currentUser!!.uid)
